@@ -9,7 +9,7 @@ public abstract class Animal : IBehavior
     protected float maxHP;
     protected float damage;
     protected float shield;
-    protected float walkSpeed = 3;
+    protected float walkSpeed = 3; //TODO fix
 	protected Animator animator;
 
 	public void attack()
