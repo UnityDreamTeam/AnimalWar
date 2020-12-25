@@ -14,7 +14,7 @@ public class BattleSystem : MonoBehaviour
     public Transform[] armyOneInitialLocation;
     public Transform[] armyTwoInitialLocation;
 
-    // Start is called before the first frame update
+    // Awake is called before all Start() functions in the game
     void Awake()
     {
         state = BattleState.START;
@@ -27,11 +27,16 @@ public class BattleSystem : MonoBehaviour
         Instantiate(playerOneArmy[0], armyOneInitialLocation[0]);
         Instantiate(playerTwoArmy[0], armyTwoInitialLocation[0]);
 
-        state = BattleState.PLAYER_TWO_TURN;
+        state = BattleState.PLAYER_ONE_TURN;
     }
 
     public BattleState getCurrentPlayerTurn()
     {
         return state;
+    }
+
+    public void updatePlayerTurn()
+    {
+        state = 3 - state;
     }
 }

@@ -8,6 +8,7 @@ public class TurnTimer : MonoBehaviour
     [SerializeField] Text countDownDisplay = null;
     [SerializeField] float InitialTimer = 0f;
     BattleState player_turn;
+    BattleSystem script;
 
     bool reloadTimer;
     // Start is called before the first frame update
@@ -15,8 +16,7 @@ public class TurnTimer : MonoBehaviour
     {
         reloadTimer = true;
         GameObject BattleSystem = GameObject.FindGameObjectWithTag("Battle_System");
-        BattleSystem script = BattleSystem.GetComponent<BattleSystem>();
-        player_turn = script.getCurrentPlayerTurn();
+        script = BattleSystem.GetComponent<BattleSystem>();
     }
 
     // Update is called once per frame
@@ -24,6 +24,7 @@ public class TurnTimer : MonoBehaviour
     {
         if (reloadTimer)
         {
+            player_turn = script.getCurrentPlayerTurn();
             StartCoroutine(CountDownTimer(InitialTimer));
             //Wait after a player's turn ended
             reloadTimer = false;
@@ -42,9 +43,8 @@ public class TurnTimer : MonoBehaviour
             yield return new WaitForSeconds(1f);
             countDownTimer--;//Update timer
         }
-        //Update player's turn
-        player_turn = 3 - player_turn;
 
+        script.updatePlayerTurn();
         countDownDisplay.text = "Turn is over";
         yield return new WaitForSeconds(2f);
         reloadTimer = true;
