@@ -9,14 +9,21 @@ public abstract class Animal : IBehavior
     protected float maxHP;
     protected float damage;
     protected float shield;
+    protected float walkSpeed = 3; //TODO fix
+	protected Animator animator;
 
-    public void attack()
+	public void attack()
     {
         
     }
 
     public void move()
     {
-        
+		
+	}
+
+    public float getWalkSpeed()
+    {
+        return this.walkSpeed;
     }
 }
