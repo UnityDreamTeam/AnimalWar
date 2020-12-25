@@ -3,19 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public abstract class Animal : IBehavier
+public abstract class Animal : IBehavior
 {
-    protected float health;
+    protected float currectHP;
+    protected float maxHP;
     protected float damage;
     protected float shield;
 
     public void attack()
     {
-        throw new System.NotImplementedException();
+        
     }
 
     public void move()
     {
-        throw new System.NotImplementedException();
+        
     }
 }

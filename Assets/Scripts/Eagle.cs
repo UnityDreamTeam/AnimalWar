@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Eagle : MonoBehaviour
+public class Eagle : Animal
 {
 
 }

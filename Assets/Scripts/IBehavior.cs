@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IBehavier
+public interface IBehavior
 {
     void attack();
     void move();
