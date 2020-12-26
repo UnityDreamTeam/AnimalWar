@@ -43,6 +43,11 @@ public class TurnTimer : MonoBehaviour
         yield return new WaitForSeconds(1f);
         information.enabled = false;
 
+        script.focusOnActiveAnimal();
+        yield return new WaitForSeconds(3f);
+        script.returnFocusToNormal();
+        yield return new WaitForSeconds(2f);
+
         //Enable movement only after pronauncing on player's turn
         go.enabled = true;
         yield return new WaitForSeconds(1f);
@@ -53,10 +58,11 @@ public class TurnTimer : MonoBehaviour
         while (countDownTimer > 0)
         {
             countDownDisplay.text = "Time left : " + countDownTimer.ToString();
-
             yield return new WaitForSeconds(1f);
             countDownTimer--;//Update timer
         }
+        //Update to 0
+        countDownDisplay.text = "Time left : " + countDownTimer.ToString();
 
         //Update relevant components
         script.disableCurrentAnimalMovement();
@@ -64,14 +70,11 @@ public class TurnTimer : MonoBehaviour
         information.text = "Turn is over";
         information.enabled = true;
        
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
 
         information.enabled = false;
+
         script.updatePlayerTurn();
-        script.focusOnActiveAnimal();
-        yield return new WaitForSeconds(3f);
-        script.returnFocusToNormal();
-        yield return new WaitForSeconds(2f);
         reloadTimer = true;
     }
 }

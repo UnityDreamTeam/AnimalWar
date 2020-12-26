@@ -32,7 +32,6 @@ public class BattleSystem : MonoBehaviour
         positionCamera = Camera.main.transform.position;
         rotationCamera = Camera.main.transform.rotation;
 
-
         currentAnimalTurn = 0;
         SetUpBattle();
     }
