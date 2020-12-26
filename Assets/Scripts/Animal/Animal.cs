@@ -13,18 +13,17 @@ public abstract class Animal : MonoBehaviour, IBehavior
 	protected Animator animator;
     private float rotationDegreePerSecond = 1000;
 
+    [SerializeField]
+    Transform attackPos = null;
 
     [SerializeField]
-    Transform attackPos;
+    float attackRangeX = 0;
 
     [SerializeField]
-    float attackRangeX;
+    float attackRangeY = 0;
 
     [SerializeField]
-    float attackRangeY;
-
-    [SerializeField]
-    LayerMask whatIsEnemies;
+    LayerMask whatIsEnemies = default;
 
     public void attack()
     {
