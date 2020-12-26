@@ -13,33 +13,34 @@ public class BattleSystem : MonoBehaviour
 
     [SerializeField] int distanceBetweenArmies = 0;
     [SerializeField] int distanceBetweenAnimals = 0;
+    readonly int zoomIn = 3; //How much to zoom in object
 
+    int currentAnimalTurn;
+    GameObject currentActiveAnimal;
+
+    Vector3 positionCamera;
+    Quaternion rotationCamera;
     // Awake is called before all Start() functions in the game
     void Awake()
     {
         state = BattleState.START;
+        //Initialize Army objects
+        Army.ArmySize = playerOneArmy.Animals.Length;
+        playerOneArmy = new Army(playerOneArmy);
+        playerTwoArmy = new Army(playerTwoArmy);
+
+        positionCamera = Camera.main.transform.position;
+        rotationCamera = Camera.main.transform.rotation;
+
+
+        currentAnimalTurn = 0;
         SetUpBattle();
-    }
-
-    bool to_focus;
-    void Update()
-    {
-        
-    }
-
-    void CameraFocus(Transform target)
-    {
-        Vector3 pointOnside = target.position + new Vector3(target.localScale.x * 0.5f, 0.0f, target.localScale.z * 0.5f);
-        float aspect = (float)Screen.width / (float)Screen.height;
-        float maxDistance = (target.localScale.y * 0.5f) / Mathf.Tan(Mathf.Deg2Rad * (Camera.main.fieldOfView / aspect));
-        Camera.main.transform.position = Vector3.MoveTowards(pointOnside, target.position, -maxDistance);
-        Camera.main.transform.LookAt(target.position);
     }
 
     void SetUpBattle()
     {
         //TODO: change to player's animals pick
-        for (int i = 0; i < playerOneArmy.armySize(); i++)
+        for (int i = 0; i < Army.ArmySize; i++)
         {
             GameObject playerOneAnimal = Instantiate(playerOneArmy.getAnimal(i), playerOneArmy.BaseLocation);
             GameObject PlayerTwoAnimal = Instantiate(playerTwoArmy.getAnimal(i), playerTwoArmy.BaseLocation);
@@ -59,6 +60,8 @@ public class BattleSystem : MonoBehaviour
         }
 
         state = BattleState.PLAYER_ONE_TURN;
+        //Set first animal to play of player #1
+        currentActiveAnimal = playerOneArmy.getAnimalObject(currentAnimalTurn);
     }
 
     void placeAnimalOnMap(GameObject animal, float x, float y)
@@ -81,10 +84,43 @@ public class BattleSystem : MonoBehaviour
     {
         //State can be either 1 or 2
         state = 3 - state;
+        if(state == BattleState.PLAYER_TWO_TURN)
+        {
+            //Set the current animal to be able to move
+            currentActiveAnimal = playerTwoArmy.getAnimalObject(currentAnimalTurn);
+
+            //Shifting to the next animal
+            currentAnimalTurn++;
+            currentAnimalTurn %= Army.ArmySize;
+        }
+        else
+        {
+            currentActiveAnimal = playerOneArmy.getAnimalObject(currentAnimalTurn);
+        }
     }
 
-    public void focusOnNextAnimal()
+    public void disableCurrentAnimalMovement()
     {
-        CameraFocus(playerOneArmy.getAnimalObject(0).transform);
+        currentActiveAnimal.GetComponent<MoveController>().enabled = false;
+    }
+
+    public void enableCurrentAnimalMovement()
+    {
+        currentActiveAnimal.GetComponent<MoveController>().enabled = true;
+    }
+
+    public void focusOnActiveAnimal()
+    {
+        Camera.main.transform.LookAt(currentActiveAnimal.transform);
+        //Zoom in
+        Camera.main.orthographicSize -= zoomIn;
+    }
+
+    public void returnFocusToNormal()
+    {
+        Camera.main.transform.position = positionCamera;
+        Camera.main.transform.rotation = rotationCamera;
+        //Zoom out
+        Camera.main.orthographicSize += zoomIn;
     }
 }
