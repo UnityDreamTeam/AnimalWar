@@ -14,6 +14,8 @@ public class BattleSystem : MonoBehaviour
     public Transform[] armyOneInitialLocation;
     public Transform[] armyTwoInitialLocation;
 
+    [SerializeField] int distanceBetweenArmies = 0;
+
     // Awake is called before all Start() functions in the game
     void Awake()
     {
@@ -24,8 +26,13 @@ public class BattleSystem : MonoBehaviour
     void SetUpBattle()
     {
         //TODO: change to player's animals pick
-        Instantiate(playerOneArmy[0], armyOneInitialLocation[0]);
-        Instantiate(playerTwoArmy[0], armyTwoInitialLocation[0]);
+        GameObject ob1 = Instantiate(playerOneArmy[0], armyOneInitialLocation[0]);
+        GameObject ob2 = Instantiate(playerTwoArmy[0], armyTwoInitialLocation[0]);
+
+        ob2.transform.position = new Vector3(ob2.transform.position.x + distanceBetweenArmies,
+            ob2.transform.position.y, ob2.transform.position.z);
+        ob2.transform.eulerAngles = new Vector3(ob2.transform.eulerAngles.x, ob2.transform.eulerAngles.y + 180,
+            ob2.transform.eulerAngles.z);
 
         state = BattleState.PLAYER_ONE_TURN;
     }

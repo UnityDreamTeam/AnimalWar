@@ -7,6 +7,7 @@ public class TurnTimer : MonoBehaviour
 {
     [SerializeField] Text countDownDisplay = null;
     [SerializeField] float InitialTimer = 0f;
+
     BattleState player_turn;
     BattleSystem script;
 
@@ -33,12 +34,15 @@ public class TurnTimer : MonoBehaviour
 
     IEnumerator CountDownTimer(float initialTime)
     {
+        //Convert enum string to number
         countDownDisplay.text = "Player's #" + player_turn.ToString("D") + " Turn";
+
         yield return new WaitForSeconds(2f);
+
         float countDownTimer = initialTime;
         while (countDownTimer > 0)
         {
-            countDownDisplay.text = "Left time: " + countDownTimer.ToString();
+            countDownDisplay.text = "Time left : " + countDownTimer.ToString();
 
             yield return new WaitForSeconds(1f);
             countDownTimer--;//Update timer
