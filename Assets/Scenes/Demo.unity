@@ -617,14 +617,14 @@ MonoBehaviour:
     animals:
     - {fileID: 5093207995274791950, guid: 14acd5fa0d249fe47b226630555121b4, type: 3}
     - {fileID: 266821337057484745, guid: 2e00a8b4b158f4840b9f23315cb611b4, type: 3}
-    - {fileID: 2758897507478619241, guid: cdaa7a99f4f9a6148862a0e3af3f1741, type: 3}
+    - {fileID: 5093207995274791950, guid: 14acd5fa0d249fe47b226630555121b4, type: 3}
     - {fileID: 3519185067678992489, guid: bd4595248a83b2548bf456be8cf2d7d8, type: 3}
     baseLocation: {fileID: 312626285}
   playerTwoArmy:
     animals:
     - {fileID: 3519185067678992489, guid: bd4595248a83b2548bf456be8cf2d7d8, type: 3}
     - {fileID: 266821337057484745, guid: 2e00a8b4b158f4840b9f23315cb611b4, type: 3}
-    - {fileID: 2758897507478619241, guid: cdaa7a99f4f9a6148862a0e3af3f1741, type: 3}
+    - {fileID: 5093207995274791950, guid: 14acd5fa0d249fe47b226630555121b4, type: 3}
     - {fileID: 5093207995274791950, guid: 14acd5fa0d249fe47b226630555121b4, type: 3}
     baseLocation: {fileID: 1452131850}
   distanceBetweenArmies: 9
