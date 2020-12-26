@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum BattleState { START, PLAYER_ONE_TURN, PLAYER_TWO_TURN, END}
+public enum BattleState {PLAYER_ONE_TURN, PLAYER_TWO_TURN}
 
 public class BattleSystem : MonoBehaviour
 {
@@ -14,16 +14,18 @@ public class BattleSystem : MonoBehaviour
     [SerializeField] int distanceBetweenArmies = 0;
     [SerializeField] int distanceBetweenAnimals = 0;
     readonly int zoomIn = 3; //How much to zoom in object
+    readonly int modulu_three = 3;
 
     int currentAnimalTurn;
     GameObject currentActiveAnimal;
 
+    //Save camera's transform properties
     Vector3 positionCamera;
     Quaternion rotationCamera;
+
     // Awake is called before all Start() functions in the game
     void Awake()
     {
-        state = BattleState.START;
         //Initialize Army objects
         Army.ArmySize = playerOneArmy.Animals.Length;
         playerOneArmy = new Army(playerOneArmy);
@@ -59,7 +61,7 @@ public class BattleSystem : MonoBehaviour
         }
 
         state = BattleState.PLAYER_ONE_TURN;
-        //Set first animal to play of player #1
+        //Set first animal to play (player #1)
         currentActiveAnimal = playerOneArmy.getAnimalObject(currentAnimalTurn);
     }
 
@@ -82,7 +84,7 @@ public class BattleSystem : MonoBehaviour
     public void updatePlayerTurn()
     {
         //State can be either 1 or 2
-        state = 3 - state;
+        state = modulu_three - state;
         if(state == BattleState.PLAYER_TWO_TURN)
         {
             //Set the current animal to be able to move

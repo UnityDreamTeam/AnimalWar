@@ -17,6 +17,7 @@ public class Army
         this.baseLocation = other.baseLocation;
         this.animals_objects = new GameObject[armySize];
     }
+
     public Transform BaseLocation { get => baseLocation; }
     public static int ArmySize { get => armySize; set => armySize = value; }
     public GameObject[] Animals { get => animals; }
