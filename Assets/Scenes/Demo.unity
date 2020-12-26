@@ -621,6 +621,7 @@ MonoBehaviour:
   - {fileID: 312626285}
   armyTwoInitialLocation:
   - {fileID: 1452131850}
+  distanceBetweenArmies: 9
 --- !u!4 &1248018789
 Transform:
   m_ObjectHideFlags: 0
