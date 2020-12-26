@@ -5,5 +5,5 @@ using UnityEngine;
 public interface IBehavior
 {
     void attack();
-    void move();
+    void move(Transform transform);
 }
