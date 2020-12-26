@@ -14,7 +14,7 @@ public class MoveController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        animal = new Elephant();
+        
     }
 
     // Update is called once per frame
@@ -25,20 +25,22 @@ public class MoveController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        horizontal = Input.GetAxis("Horizontal");
+        /*horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
 
         Vector3 stickDirection = new Vector3(horizontal, 0, 0);
         Vector3 position = new Vector3(horizontal, vertical, 0);
 
-        /*if (stickDirection.sqrMagnitude > 1)
+        *//*if (stickDirection.sqrMagnitude > 1)
         {
             stickDirection.Normalize();
             position.Normalize();
-        }*/
+        }*//*
 
         if (stickDirection != Vector3.zero)
             transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(stickDirection, Vector3.up), rotationDegreePerSecond * Time.deltaTime);
-        transform.position += position * Time.deltaTime * animal.getWalkSpeed();
+        transform.position += position * Time.deltaTime * animal.getWalkSpeed();*/
+
+        animal.move(transform);
     }
 }
