@@ -8,13 +8,11 @@ public class BattleSystem : MonoBehaviour
 {
     BattleState state; //Current battle state
 
-    public GameObject[] playerOneArmy;
-    public GameObject[] playerTwoArmy;
-
-    public Transform[] armyOneInitialLocation;
-    public Transform[] armyTwoInitialLocation;
+    [SerializeField] Army playerOneArmy = null;
+    [SerializeField] Army playerTwoArmy = null;
 
     [SerializeField] int distanceBetweenArmies = 0;
+    [SerializeField] int distanceBetweenAnimals = 0;
 
     // Awake is called before all Start() functions in the game
     void Awake()
@@ -23,18 +21,55 @@ public class BattleSystem : MonoBehaviour
         SetUpBattle();
     }
 
+    bool to_focus;
+    void Update()
+    {
+        
+    }
+
+    void CameraFocus(Transform target)
+    {
+        Vector3 pointOnside = target.position + new Vector3(target.localScale.x * 0.5f, 0.0f, target.localScale.z * 0.5f);
+        float aspect = (float)Screen.width / (float)Screen.height;
+        float maxDistance = (target.localScale.y * 0.5f) / Mathf.Tan(Mathf.Deg2Rad * (Camera.main.fieldOfView / aspect));
+        Camera.main.transform.position = Vector3.MoveTowards(pointOnside, target.position, -maxDistance);
+        Camera.main.transform.LookAt(target.position);
+    }
+
     void SetUpBattle()
     {
         //TODO: change to player's animals pick
-        GameObject ob1 = Instantiate(playerOneArmy[0], armyOneInitialLocation[0]);
-        GameObject ob2 = Instantiate(playerTwoArmy[0], armyTwoInitialLocation[0]);
+        for (int i = 0; i < playerOneArmy.armySize(); i++)
+        {
+            GameObject playerOneAnimal = Instantiate(playerOneArmy.getAnimal(i), playerOneArmy.BaseLocation);
+            GameObject PlayerTwoAnimal = Instantiate(playerTwoArmy.getAnimal(i), playerTwoArmy.BaseLocation);
 
-        ob2.transform.position = new Vector3(ob2.transform.position.x + distanceBetweenArmies,
-            ob2.transform.position.y, ob2.transform.position.z);
-        ob2.transform.eulerAngles = new Vector3(ob2.transform.eulerAngles.x, ob2.transform.eulerAngles.y + 180,
-            ob2.transform.eulerAngles.z);
+            playerOneArmy.setAnimalObject(playerOneAnimal, i);
+            playerTwoArmy.setAnimalObject(PlayerTwoAnimal, i);
+
+            //Set position to animal of army #1
+            placeAnimalOnMap(playerOneAnimal, playerOneAnimal.transform.position.x, playerOneAnimal.transform.position.y - i * distanceBetweenAnimals);
+
+            //Set position to animal of army #2
+            placeAnimalOnMap(PlayerTwoAnimal, PlayerTwoAnimal.transform.position.x + distanceBetweenArmies,
+                PlayerTwoAnimal.transform.position.y - i * distanceBetweenAnimals);
+
+            //Set rotation to animal of army #2
+            rotateAnimal(PlayerTwoAnimal);
+        }
 
         state = BattleState.PLAYER_ONE_TURN;
+    }
+
+    void placeAnimalOnMap(GameObject animal, float x, float y)
+    {
+        animal.transform.position = new Vector3(x, y, animal.transform.position.z);
+    }
+
+    void rotateAnimal(GameObject animal)
+    {
+        animal.transform.eulerAngles = new Vector3(animal.transform.eulerAngles.x, animal.transform.eulerAngles.y + 180,
+            animal.transform.eulerAngles.z);
     }
 
     public BattleState getCurrentPlayerTurn()
@@ -44,6 +79,12 @@ public class BattleSystem : MonoBehaviour
 
     public void updatePlayerTurn()
     {
+        //State can be either 1 or 2
         state = 3 - state;
+    }
+
+    public void focusOnNextAnimal()
+    {
+        CameraFocus(playerOneArmy.getAnimalObject(0).transform);
     }
 }
