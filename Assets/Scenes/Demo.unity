@@ -131,7 +131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 312626285}
   m_Layer: 0
-  m_Name: AnimalALocation
+  m_Name: ArmyALocation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -614,14 +614,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerOneArmy:
-  - {fileID: 5093207995274791950, guid: 14acd5fa0d249fe47b226630555121b4, type: 3}
+    animals:
+    - {fileID: 5093207995274791950, guid: 14acd5fa0d249fe47b226630555121b4, type: 3}
+    - {fileID: 266821337057484745, guid: 2e00a8b4b158f4840b9f23315cb611b4, type: 3}
+    - {fileID: 5093207995274791950, guid: 14acd5fa0d249fe47b226630555121b4, type: 3}
+    - {fileID: 3519185067678992489, guid: bd4595248a83b2548bf456be8cf2d7d8, type: 3}
+    baseLocation: {fileID: 312626285}
   playerTwoArmy:
-  - {fileID: 3519185067678992489, guid: bd4595248a83b2548bf456be8cf2d7d8, type: 3}
-  armyOneInitialLocation:
-  - {fileID: 312626285}
-  armyTwoInitialLocation:
-  - {fileID: 1452131850}
+    animals:
+    - {fileID: 3519185067678992489, guid: bd4595248a83b2548bf456be8cf2d7d8, type: 3}
+    - {fileID: 266821337057484745, guid: 2e00a8b4b158f4840b9f23315cb611b4, type: 3}
+    - {fileID: 5093207995274791950, guid: 14acd5fa0d249fe47b226630555121b4, type: 3}
+    - {fileID: 5093207995274791950, guid: 14acd5fa0d249fe47b226630555121b4, type: 3}
+    baseLocation: {fileID: 1452131850}
   distanceBetweenArmies: 9
+  distanceBetweenAnimals: 2
 --- !u!4 &1248018789
 Transform:
   m_ObjectHideFlags: 0
@@ -646,7 +653,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1452131850}
   m_Layer: 0
-  m_Name: AnimalBLocation
+  m_Name: ArmyBLocation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -6,6 +6,8 @@ using UnityEngine;
 public class TurnTimer : MonoBehaviour
 {
     [SerializeField] Text countDownDisplay = null;
+    [SerializeField] Text go = null;
+    [SerializeField] Text information = null;
     [SerializeField] float InitialTimer = 0f;
 
     BattleState player_turn;
@@ -35,22 +37,44 @@ public class TurnTimer : MonoBehaviour
     IEnumerator CountDownTimer(float initialTime)
     {
         //Convert enum string to number
-        countDownDisplay.text = "Player's #" + player_turn.ToString("D") + " Turn";
+        information.text = "Player's #" + player_turn.ToString("D") + " Turn";
+        information.enabled = true;
 
+        yield return new WaitForSeconds(1f);
+        information.enabled = false;
+
+        script.focusOnActiveAnimal();
+        yield return new WaitForSeconds(3f);
+        script.returnFocusToNormal();
         yield return new WaitForSeconds(2f);
+
+        //Enable movement only after pronauncing on player's turn
+        go.enabled = true;
+        yield return new WaitForSeconds(1f);
+        script.enableCurrentAnimalMovement();
+        go.enabled = false;
 
         float countDownTimer = initialTime;
         while (countDownTimer > 0)
         {
             countDownDisplay.text = "Time left : " + countDownTimer.ToString();
-
             yield return new WaitForSeconds(1f);
             countDownTimer--;//Update timer
         }
+        //Update to 0
+        countDownDisplay.text = "Time left : " + countDownTimer.ToString();
+
+        //Update relevant components
+        script.disableCurrentAnimalMovement();
+
+        information.text = "Turn is over";
+        information.enabled = true;
+       
+        yield return new WaitForSeconds(1.5f);
+
+        information.enabled = false;
 
         script.updatePlayerTurn();
-        countDownDisplay.text = "Turn is over";
-        yield return new WaitForSeconds(2f);
         reloadTimer = true;
     }
 }
