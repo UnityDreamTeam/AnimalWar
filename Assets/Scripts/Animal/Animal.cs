@@ -52,7 +52,17 @@ public abstract class Animal : MonoBehaviour, IBehavior
         {
             transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(stickDirection, Vector3.up), rotationDegreePerSecond * Time.deltaTime);
         }
-            
+
+        if (horizontal != 0 || vertical != 0)
+        {
+            gameObject.GetComponent<Animator>().SetBool("Run", true);
+        }
+        
+        else
+        {
+            gameObject.GetComponent<Animator>().SetBool("Run", false);
+        }
+
         transform.position += position * Time.deltaTime * getWalkSpeed();
     }
 
