@@ -42,25 +42,19 @@ public abstract class Animal : MonoBehaviour, IBehavior
         Vector3 stickDirection = new Vector3(horizontal, 0, 0);
         Vector3 position = new Vector3(horizontal, vertical, 0);
 
-        /*if (stickDirection.sqrMagnitude > 1)
-        {
-            stickDirection.Normalize();
-            position.Normalize();
-        }*/
-
         if (stickDirection != Vector3.zero)
         {
             transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(stickDirection, Vector3.up), rotationDegreePerSecond * Time.deltaTime);
         }
 
+        //Check if movement detected
         if (horizontal != 0 || vertical != 0)
         {
-            gameObject.GetComponent<Animator>().SetBool("Run", true);
+            gameObject.GetComponentInChildren<Animator>().SetBool("Run", true);
         }
-        
         else
         {
-            gameObject.GetComponent<Animator>().SetBool("Run", false);
+            gameObject.GetComponentInChildren<Animator>().SetBool("Run", false);
         }
 
         transform.position += position * Time.deltaTime * getWalkSpeed();
@@ -87,6 +81,11 @@ public abstract class Animal : MonoBehaviour, IBehavior
 
             attack();
         }
+    }
+
+    public void disableMovement()
+    {
+        gameObject.GetComponent<Animator>().SetBool("Run", false);
     }
 
     public float getWalkSpeed()

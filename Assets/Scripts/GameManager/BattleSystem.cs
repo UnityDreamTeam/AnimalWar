@@ -103,6 +103,7 @@ public class BattleSystem : MonoBehaviour
     public void disableCurrentAnimalMovement()
     {
         currentActiveAnimal.GetComponent<MoveController>().enabled = false;
+        currentActiveAnimal.GetComponent<Animal>().disableMovement();
     }
 
     public void enableCurrentAnimalMovement()
