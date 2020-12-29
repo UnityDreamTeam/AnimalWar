@@ -79,8 +79,12 @@ public abstract class Animal : MonoBehaviour, IBehavior
             move(transform);
         }
 
+        
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            //TODO creat animator Controll script
+            gameObject.GetComponent<Animator>().SetBool("Attack", true);
+
             attack();
         }
     }
