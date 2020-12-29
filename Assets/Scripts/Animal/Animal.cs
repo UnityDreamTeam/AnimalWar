@@ -7,7 +7,7 @@ public abstract class Animal : MonoBehaviour, IBehavior
 {
     protected float currectHP;
     protected float maxHP;
-    protected float damage;
+    protected float damage = 0.1f;
     protected float shield;
     protected float walkSpeed = 3; //TODO fix
 	protected Animator animator;
@@ -30,7 +30,9 @@ public abstract class Animal : MonoBehaviour, IBehavior
         Collider2D[] enemiesToDamage = Physics2D.OverlapBoxAll(attackPos.position, new Vector2(attackRangeX, attackRangeY), 0, whatIsEnemies);
         for (int i = 0; i < enemiesToDamage.Length; i++)
         {
-            //enemiesToDamage[i].GetComponent<DamageScript>().TakeDamage(animal.getDamage()); // TODO make a script to deal damage of the enemy
+            enemiesToDamage[i].GetComponentInChildren<HealthBar>().ReduceHP(getDamage()); // TODO make a script to deal damage of the enemy
+
+
         }
     }
 
@@ -68,13 +70,12 @@ public abstract class Animal : MonoBehaviour, IBehavior
 
     private void Update()
     {
-        if (gameObject.GetComponent<MoveController>().enabled)
+        if (gameObject.GetComponent<AnimalController>().enabled)
         {
             move(transform);
         }
-
         
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && gameObject.GetComponent<AnimalController>().enabled)
         {
             //TODO creat animator Controll script
             gameObject.GetComponent<Animator>().SetBool("Attack", true);
