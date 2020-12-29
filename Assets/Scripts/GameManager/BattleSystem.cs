@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum BattleState {PLAYER_ONE_TURN, PLAYER_TWO_TURN}
+public enum BattleState {START, PLAYER_ONE_TURN, PLAYER_TWO_TURN}
 
 public class BattleSystem : MonoBehaviour
 {
@@ -103,6 +103,7 @@ public class BattleSystem : MonoBehaviour
     public void disableCurrentAnimalMovement()
     {
         currentActiveAnimal.GetComponent<MoveController>().enabled = false;
+        currentActiveAnimal.GetComponent<Animal>().disableMovement();
     }
 
     public void enableCurrentAnimalMovement()
