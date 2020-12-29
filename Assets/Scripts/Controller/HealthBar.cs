@@ -24,6 +24,5 @@ public class HealthBar : MonoBehaviour
         {
             Destroy(gameObject.transform.parent.gameObject);
         }
-        Debug.Log(hp);
     }
 }
