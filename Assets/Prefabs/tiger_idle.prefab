@@ -10193,6 +10193,7 @@ GameObject:
   - component: {fileID: 266821337050197101}
   - component: {fileID: -2011116631732184557}
   - component: {fileID: 6965263161976962066}
+  - component: {fileID: 6446642284013418474}
   m_Layer: 8
   m_Name: tiger_idle
   m_TagString: Untagged
@@ -10267,6 +10268,22 @@ MonoBehaviour:
   whatIsEnemies:
     serializedVersion: 2
     m_Bits: 256
+--- !u!58 &6446642284013418474
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 266821337057484745}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.11224735, y: 0.41891268}
+  serializedVersion: 2
+  m_Radius: 0.6498201
 --- !u!1 &266821337057484747
 GameObject:
   m_ObjectHideFlags: 0
@@ -11140,6 +11157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2be3885046f68cc4c985fb8afdc3d0c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bar: {fileID: 0}
 --- !u!1 &5373867291867052852
 GameObject:
   m_ObjectHideFlags: 0

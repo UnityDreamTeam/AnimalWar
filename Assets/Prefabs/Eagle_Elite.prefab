@@ -745,6 +745,7 @@ GameObject:
   - component: {fileID: 4033408869912199227}
   - component: {fileID: 6021829030971295767}
   - component: {fileID: 2753917417695813502}
+  - component: {fileID: 39338640492935756}
   m_Layer: 8
   m_Name: Eagle_Elite
   m_TagString: Untagged
@@ -760,7 +761,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3921204256997443775}
   m_LocalRotation: {x: -0.13788918, y: 0.693532, z: -0.13788918, w: 0.693532}
-  m_LocalPosition: {x: -0.72, y: 0, z: -0}
+  m_LocalPosition: {x: -0.72, y: -0.16, z: -0}
   m_LocalScale: {x: 3.5, y: 3.5, z: 3.5}
   m_Children:
   - {fileID: 3918403206079863199}
@@ -832,6 +833,22 @@ MonoBehaviour:
   whatIsEnemies:
     serializedVersion: 2
     m_Bits: 256
+--- !u!70 &39338640492935756
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3921204256997443775}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 388790, y: 160963.16}
+  m_Size: {x: 1.2269764, y: 0.65671825}
+  m_Direction: 0
 --- !u!1 &3921210670618743783
 GameObject:
   m_ObjectHideFlags: 0
@@ -1473,3 +1490,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2be3885046f68cc4c985fb8afdc3d0c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bar: {fileID: 0}

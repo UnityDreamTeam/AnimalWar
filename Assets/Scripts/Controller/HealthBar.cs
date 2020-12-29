@@ -4,21 +4,26 @@ using UnityEngine;
 
 public class HealthBar : MonoBehaviour
 {
-    private Transform bar;
+    public Transform bar;
     readonly float maxHealth = 1f;
     float hp;
 
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
        bar = transform.Find("Bar");
        bar.localScale = new Vector3(maxHealth, maxHealth);
        hp = maxHealth;
     }
 
-    private void ReduceHP(float damage)
+    public void ReduceHP(float damage)
     {
         hp -= damage;
         bar.localScale = new Vector3(hp, maxHealth);
+        if (hp <= 0)
+        {
+            Destroy(gameObject.transform.parent.gameObject);
+        }
+        Debug.Log(hp);
     }
 }

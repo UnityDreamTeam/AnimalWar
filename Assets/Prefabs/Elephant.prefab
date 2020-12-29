@@ -1730,7 +1730,7 @@ GameObject:
   - component: {fileID: 2842147684891060682}
   - component: {fileID: 2842147684891060689}
   - component: {fileID: 2842147684891060684}
-  - component: {fileID: 2842147684891060688}
+  - component: {fileID: 5294475459714039592}
   - component: {fileID: 2842147684891060685}
   m_Layer: 8
   m_Name: Elephant
@@ -1816,7 +1816,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0.2872727, y: 0.12900251}
   m_Size: {x: 0.35, y: 0.0001}
   m_Direction: 0
---- !u!114 &2842147684891060688
+--- !u!114 &5294475459714039592
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
