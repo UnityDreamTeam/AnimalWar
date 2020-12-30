@@ -12,6 +12,8 @@ public abstract class Animal : MonoBehaviour, IBehavior
     protected float walkSpeed = 3; //TODO fix
 	protected Animator animator;
     private float rotationDegreePerSecond = 1000;
+    bool delayAttack = false;
+    [SerializeField] float delayAttackTime = 1.8f;
 
     [SerializeField]
     Transform attackPos = null;
@@ -31,8 +33,6 @@ public abstract class Animal : MonoBehaviour, IBehavior
         for (int i = 0; i < enemiesToDamage.Length; i++)
         {
             enemiesToDamage[i].GetComponentInChildren<HealthBar>().ReduceHP(getDamage()); // TODO make a script to deal damage of the enemy
-
-
         }
     }
 
@@ -46,7 +46,7 @@ public abstract class Animal : MonoBehaviour, IBehavior
 
         if (stickDirection != Vector3.zero)
         {
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(stickDirection, Vector3.up), rotationDegreePerSecond * Time.deltaTime);
+            //transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(stickDirection, Vector3.up), rotationDegreePerSecond * Time.deltaTime);
         }
 
         //Check if movement detected
@@ -75,16 +75,24 @@ public abstract class Animal : MonoBehaviour, IBehavior
             move(transform);
         }
         
-        if (Input.GetKeyDown(KeyCode.Space) && gameObject.GetComponent<AnimalController>().enabled)
+        if (!delayAttack && Input.GetKeyDown(KeyCode.Space) && gameObject.GetComponent<AnimalController>().enabled)
         {
             //TODO creat animator Controll script
             gameObject.GetComponent<Animator>().SetBool("Attack", true);
 
             attack();
+            delayAttack = true;
+            StartCoroutine(attackLock());
         }
     }
 
-    public void disableMovement()
+    IEnumerator attackLock()
+    {
+        yield return new WaitForSeconds(delayAttackTime);
+        delayAttack = false;
+    }
+
+        public void disableMovement()
     {
         gameObject.GetComponent<Animator>().SetBool("Run", false);
     }
