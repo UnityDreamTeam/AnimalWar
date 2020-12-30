@@ -33,8 +33,6 @@ public abstract class Animal : MonoBehaviour, IBehavior
         for (int i = 0; i < enemiesToDamage.Length; i++)
         {
             enemiesToDamage[i].GetComponentInChildren<HealthBar>().ReduceHP(getDamage()); // TODO make a script to deal damage of the enemy
-
-
         }
     }
 
@@ -48,7 +46,7 @@ public abstract class Animal : MonoBehaviour, IBehavior
 
         if (stickDirection != Vector3.zero)
         {
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(stickDirection, Vector3.up), rotationDegreePerSecond * Time.deltaTime);
+            //transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(stickDirection, Vector3.up), rotationDegreePerSecond * Time.deltaTime);
         }
 
         //Check if movement detected
