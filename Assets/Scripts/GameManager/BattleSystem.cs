@@ -16,7 +16,8 @@ public class BattleSystem : MonoBehaviour
     readonly int zoomIn = 3; //How much to zoom in object
     readonly int modulu_three = 3;
 
-    int currentAnimalTurn;
+    int playerOneCurrentAnimalTurn;
+    int playerTwoCurrentAnimalTurn;
     GameObject currentActiveAnimal;
 
     //Save camera's transform properties
@@ -34,7 +35,8 @@ public class BattleSystem : MonoBehaviour
         positionCamera = Camera.main.transform.position;
         rotationCamera = Camera.main.transform.rotation;
 
-        currentAnimalTurn = 0;
+        playerOneCurrentAnimalTurn = playerTwoCurrentAnimalTurn = 0;
+
         SetUpBattle();
     }
 
@@ -62,7 +64,7 @@ public class BattleSystem : MonoBehaviour
 
         state = BattleState.PLAYER_ONE_TURN;
         //Set first animal to play (player #1)
-        currentActiveAnimal = playerOneArmy.getAnimalObject(currentAnimalTurn);
+        currentActiveAnimal = playerOneArmy.getAnimalObject(playerOneCurrentAnimalTurn++);
     }
 
     void placeAnimalOnMap(GameObject animal, float x, float y)
@@ -85,18 +87,28 @@ public class BattleSystem : MonoBehaviour
     {
         //State can be either 1 or 2
         state = modulu_three - state;
+
         if(state == BattleState.PLAYER_TWO_TURN)
         {
             //Set the current animal to be able to move
-            currentActiveAnimal = playerTwoArmy.getAnimalObject(currentAnimalTurn);
-
-            //Shifting to the next animal
-            currentAnimalTurn++;
-            currentAnimalTurn %= Army.ArmySize;
+            do
+            {
+                currentActiveAnimal = playerTwoArmy.getAnimalObject(playerTwoCurrentAnimalTurn);
+                //Shifting to the next animal
+                playerTwoCurrentAnimalTurn++;
+                playerTwoCurrentAnimalTurn %= Army.ArmySize;
+            }while(currentActiveAnimal == null);
         }
         else
         {
-            currentActiveAnimal = playerOneArmy.getAnimalObject(currentAnimalTurn);
+            //Set the current animal to be able to move
+            do
+            {
+                currentActiveAnimal = playerOneArmy.getAnimalObject(playerOneCurrentAnimalTurn);
+                //Shifting to the next animal
+                playerOneCurrentAnimalTurn++;
+                playerOneCurrentAnimalTurn %= Army.ArmySize;
+            }while(currentActiveAnimal == null);
         }
     }
 
