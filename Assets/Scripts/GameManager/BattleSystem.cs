@@ -13,6 +13,10 @@ public class BattleSystem : MonoBehaviour
 
     [SerializeField] float distanceBetweenArmies = 0;
     [SerializeField] float distanceBetweenAnimals = 0;
+
+    [SerializeField] Color playerOneBarColor = Color.red;
+    [SerializeField] Color playerTwoBarColor = Color.blue;
+    
     readonly int zoomIn = 3; //How much to zoom in object
     readonly int modulu_three = 3;
 
@@ -54,6 +58,10 @@ public class BattleSystem : MonoBehaviour
             // each animal has tag to identify if belong to player one or to player two
             playerOneAnimal.tag = UnityEditorInternal.InternalEditorUtility.tags[playerOneTagPosition];
             PlayerTwoAnimal.tag = UnityEditorInternal.InternalEditorUtility.tags[playerTwoTagPosition];
+
+            // change the color of the bar life of the player's animals
+            playerOneAnimal.transform.Find("HealthBar/Bar/BarSprite").GetComponent<SpriteRenderer>().color = playerOneBarColor;
+            PlayerTwoAnimal.transform.Find("HealthBar/Bar/BarSprite").GetComponent<SpriteRenderer>().color = playerTwoBarColor;
 
             playerOneArmy.setAnimalObject(playerOneAnimal, i);
             playerTwoArmy.setAnimalObject(PlayerTwoAnimal, i);
