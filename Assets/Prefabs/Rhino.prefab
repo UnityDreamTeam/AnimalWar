@@ -1321,7 +1321,7 @@ MonoBehaviour:
   walkSpeed: 3
   delayAttackTime: 1.7
   attackPos: {fileID: 2470503756713292021}
-  attackRadios: 0.2
+  attackRadius: 0.1
   whatIsEnemies:
     serializedVersion: 2
     m_Bits: 256
@@ -1654,7 +1654,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2be3885046f68cc4c985fb8afdc3d0c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bar: {fileID: 0}
 --- !u!1 &8007784538748112841
 GameObject:
   m_ObjectHideFlags: 0
