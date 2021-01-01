@@ -11,8 +11,8 @@ public class BattleSystem : MonoBehaviour
     [SerializeField] Army playerOneArmy = null;
     [SerializeField] Army playerTwoArmy = null;
 
-    [SerializeField] int distanceBetweenArmies = 0;
-    [SerializeField] int distanceBetweenAnimals = 0;
+    [SerializeField] float distanceBetweenArmies = 0;
+    [SerializeField] float distanceBetweenAnimals = 0;
     readonly int zoomIn = 3; //How much to zoom in object
     readonly int modulu_three = 3;
 
