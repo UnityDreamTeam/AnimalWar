@@ -15,7 +15,7 @@ public abstract class Animal : MonoBehaviour, IBehavior
     bool delayAttack = false;
     [SerializeField] float delayAttackTime = 1.8f;
     [SerializeField] Transform attackPos = null;
-    [SerializeField] float attackRadios;
+    [SerializeField] float attackRadios = 0.1f;
     [SerializeField] LayerMask whatIsEnemies = default;
 
     public float MaxHP { get => maxHP; set => maxHP = value; }
