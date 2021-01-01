@@ -13,12 +13,19 @@ public class BattleSystem : MonoBehaviour
 
     [SerializeField] float distanceBetweenArmies = 0;
     [SerializeField] float distanceBetweenAnimals = 0;
+
+    [SerializeField] Color playerOneBarColor = Color.red;
+    [SerializeField] Color playerTwoBarColor = Color.blue;
+    
     readonly int zoomIn = 3; //How much to zoom in object
     readonly int modulu_three = 3;
 
     int playerOneCurrentAnimalTurn;
     int playerTwoCurrentAnimalTurn;
     GameObject currentActiveAnimal;
+
+    readonly int playerOneTagPosition = 7;
+    readonly int playerTwoTagPosition = 8;
 
     //Save camera's transform properties
     Vector3 positionCamera;
@@ -47,6 +54,14 @@ public class BattleSystem : MonoBehaviour
         {
             GameObject playerOneAnimal = Instantiate(playerOneArmy.getAnimal(i), playerOneArmy.BaseLocation);
             GameObject PlayerTwoAnimal = Instantiate(playerTwoArmy.getAnimal(i), playerTwoArmy.BaseLocation);
+
+            // each animal has tag to identify if belong to player one or to player two
+            playerOneAnimal.tag = UnityEditorInternal.InternalEditorUtility.tags[playerOneTagPosition];
+            PlayerTwoAnimal.tag = UnityEditorInternal.InternalEditorUtility.tags[playerTwoTagPosition];
+
+            // change the color of the bar life of the player's animals
+            playerOneAnimal.transform.Find("HealthBar/Bar/BarSprite").GetComponent<SpriteRenderer>().color = playerOneBarColor;
+            PlayerTwoAnimal.transform.Find("HealthBar/Bar/BarSprite").GetComponent<SpriteRenderer>().color = playerTwoBarColor;
 
             playerOneArmy.setAnimalObject(playerOneAnimal, i);
             playerTwoArmy.setAnimalObject(PlayerTwoAnimal, i);

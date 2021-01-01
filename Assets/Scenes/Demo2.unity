@@ -2617,6 +2617,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Elephant (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2842147684891060691, guid: 14acd5fa0d249fe47b226630555121b4,
+        type: 3}
+      propertyPath: m_TagString
+      value: BlueTeam
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 14acd5fa0d249fe47b226630555121b4, type: 3}
@@ -3262,6 +3267,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rhino
       objectReference: {fileID: 0}
+    - target: {fileID: 3519185067678992489, guid: bd4595248a83b2548bf456be8cf2d7d8,
+        type: 3}
+      propertyPath: m_TagString
+      value: RedTeam
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd4595248a83b2548bf456be8cf2d7d8, type: 3}
 --- !u!1001 &1355923598
@@ -3271,6 +3281,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2753917417695813502, guid: b8abf5e357968a943aef91d3490413a9,
+        type: 3}
+      propertyPath: maxHP
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 3918635392037736953, guid: b8abf5e357968a943aef91d3490413a9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4049,6 +4064,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Elephant
+      objectReference: {fileID: 0}
+    - target: {fileID: 2842147684891060691, guid: 14acd5fa0d249fe47b226630555121b4,
+        type: 3}
+      propertyPath: m_TagString
+      value: RedTeam
       objectReference: {fileID: 0}
     - target: {fileID: 2842147684962045929, guid: 14acd5fa0d249fe47b226630555121b4,
         type: 3}

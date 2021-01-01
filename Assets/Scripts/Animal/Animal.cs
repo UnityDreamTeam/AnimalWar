@@ -15,17 +15,21 @@ public abstract class Animal : MonoBehaviour, IBehavior
     bool delayAttack = false;
     [SerializeField] float delayAttackTime = 1.8f;
     [SerializeField] Transform attackPos = null;
-    [SerializeField] float attackRadios;
+    [SerializeField] float attackRadius = 0.1f;
     [SerializeField] LayerMask whatIsEnemies = default;
 
     public float MaxHP { get => maxHP; set => maxHP = value; }
 
     public void attack()
     {
-        Collider[] enemiesToDamage = Physics.OverlapSphere(attackPos.position, attackRadios, whatIsEnemies, QueryTriggerInteraction.UseGlobal);
+        Collider[] enemiesToDamage = Physics.OverlapSphere(attackPos.position, attackRadius, whatIsEnemies, QueryTriggerInteraction.UseGlobal);
         for (int i = 0; i < enemiesToDamage.Length; i++)
         {
-            enemiesToDamage[i].GetComponentInChildren<HealthBar>().ReduceHP(getDamage()); // TODO make a script to deal damage of the enemy
+            if (gameObject.tag.Equals(enemiesToDamage[i].tag)) // check if teammate
+            {
+                continue;
+            }
+            enemiesToDamage[i].GetComponentInChildren<HealthBar>().ReduceHP(getDamage());
         }
     }
 
@@ -58,7 +62,7 @@ public abstract class Animal : MonoBehaviour, IBehavior
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawSphere(attackPos.position, attackRadios);
+        Gizmos.DrawSphere(attackPos.position, attackRadius);
     }
 
     private void Update()
