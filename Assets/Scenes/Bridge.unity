@@ -166,8 +166,8 @@ MonoBehaviour:
     baseLocation: {fileID: 387590426}
   distanceBetweenArmies: 9
   distanceBetweenAnimals: 2
-  playerOneBarColor: {r: 0.09732112, g: 0.15611936, b: 0.764151, a: 0.5882353}
-  playerTwoBarColor: {r: 0.25601444, g: 0.6698113, b: 0.17377181, a: 0.5882353}
+  playerOneBarColor: {r: 0.9254902, g: 0.1298463, b: 0.090196095, a: 1}
+  playerTwoBarColor: {r: 0.09313814, g: 0.12972897, b: 0.8584906, a: 1}
 --- !u!4 &110020940
 Transform:
   m_ObjectHideFlags: 0

@@ -24,8 +24,8 @@ public class BattleSystem : MonoBehaviour
     int playerTwoCurrentAnimalTurn;
     GameObject currentActiveAnimal;
 
-    int playerOneTagPosition = 8;
-    int playerTwoTagPosition = 9;
+    int playerOneTagPosition = 7;
+    int playerTwoTagPosition = 8;
 
     //Save camera's transform properties
     Vector3 positionCamera;

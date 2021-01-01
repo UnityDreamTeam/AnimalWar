@@ -4,9 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Battle_System
-  - RedTeam
-  - BlueTeam
+  - PlayerOne
+  - PlayerTwo
   layers:
   - Default
   - TransparentFX
@@ -16,7 +15,7 @@ TagManager:
   - UI
   - 
   - 
-  - Animal
+  - 
   - 
   - 
   - 
