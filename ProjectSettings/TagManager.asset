@@ -6,8 +6,7 @@ TagManager:
   tags:
   - PlayerOne
   - PlayerTwo
-  - BlueTeam
-  - RedTeam
+  - Battle_System
   layers:
   - Default
   - TransparentFX
