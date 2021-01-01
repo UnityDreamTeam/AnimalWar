@@ -1246,7 +1246,7 @@ GameObject:
   - component: {fileID: 3519185067669519343}
   - component: {fileID: 7862586287491809272}
   - component: {fileID: -2986343342997654397}
-  - component: {fileID: 5345485792337575912}
+  - component: {fileID: 1277356903033841039}
   m_Layer: 8
   m_Name: Rhino
   m_TagString: Untagged
@@ -1262,7 +1262,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3519185067678992489}
   m_LocalRotation: {x: -0.12904197, y: 0.6952325, z: -0.12904197, w: 0.6952325}
-  m_LocalPosition: {x: -7, y: 2, z: 0}
+  m_LocalPosition: {x: -8.586, y: 1.952, z: 0.018}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children:
   - {fileID: 3519185067678766131}
@@ -1316,32 +1316,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7086595ffc984fc469e01ef4b3ca7210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 250
-  damage: 50
-  walkSpeed: 2.7
   delayAttackTime: 1.7
   attackPos: {fileID: 2470503756713292021}
-  attackRangeX: 0.5
-  attackRangeY: 0.67
+  attackRadios: 0.2
   whatIsEnemies:
     serializedVersion: 2
     m_Bits: 256
---- !u!58 &5345485792337575912
-CircleCollider2D:
+--- !u!136 &1277356903033841039
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3519185067678992489}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -202402.3, y: -77816.58}
-  serializedVersion: 2
-  m_Radius: 0.07902168
+  m_Enabled: 1
+  m_Radius: 0.08192458
+  m_Height: 0.16384919
+  m_Direction: 1
+  m_Center: {x: -0.008044464, y: -0.019037748, z: 0.03320357}
 --- !u!1 &3519185067678992491
 GameObject:
   m_ObjectHideFlags: 0
@@ -1682,7 +1676,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8007784538748112841}
   m_LocalRotation: {x: 0.12904197, y: -0.6952325, z: 0.12904197, w: 0.6952325}
-  m_LocalPosition: {x: -0.0059, y: -0.0263704, z: 0.1304}
+  m_LocalPosition: {x: -0.0059, y: -0.0263704, z: 0.1438}
   m_LocalScale: {x: 0.09999998, y: 0.1, z: 0.09999998}
   m_Children: []
   m_Father: {fileID: 3519185067678766155}
