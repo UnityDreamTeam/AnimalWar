@@ -6,6 +6,9 @@ TagManager:
   tags:
   - PlayerOne
   - PlayerTwo
+  - BlueTeam
+  - RedTeam
+  - Message
   layers:
   - Default
   - TransparentFX
