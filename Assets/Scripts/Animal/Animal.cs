@@ -14,22 +14,13 @@ public abstract class Animal : MonoBehaviour, IBehavior
     private float rotationDegreePerSecond = 1000;
     bool delayAttack = false;
     [SerializeField] float delayAttackTime = 1.8f;
-
-    [SerializeField]
-    Transform attackPos = null;
-
-    [SerializeField]
-    float attackRangeX = 0;
-
-    [SerializeField]
-    float attackRangeY = 0;
-
-    [SerializeField]
-    LayerMask whatIsEnemies = default;
+    [SerializeField] Transform attackPos = null;
+    [SerializeField] float attackRadios;
+    [SerializeField] LayerMask whatIsEnemies = default;
 
     public void attack()
     {
-        Collider2D[] enemiesToDamage = Physics2D.OverlapBoxAll(attackPos.position, new Vector2(attackRangeX, attackRangeY), 0, whatIsEnemies);
+        Collider[] enemiesToDamage = Physics.OverlapSphere(attackPos.position, attackRadios, whatIsEnemies, QueryTriggerInteraction.UseGlobal);
         for (int i = 0; i < enemiesToDamage.Length; i++)
         {
             enemiesToDamage[i].GetComponentInChildren<HealthBar>().ReduceHP(getDamage()); // TODO make a script to deal damage of the enemy
@@ -46,7 +37,7 @@ public abstract class Animal : MonoBehaviour, IBehavior
 
         if (stickDirection != Vector3.zero)
         {
-            //transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(stickDirection, Vector3.up), rotationDegreePerSecond * Time.deltaTime);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(stickDirection, Vector3.up), rotationDegreePerSecond * Time.deltaTime);
         }
 
         //Check if movement detected
@@ -65,7 +56,7 @@ public abstract class Animal : MonoBehaviour, IBehavior
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawCube(attackPos.position, new Vector3(attackRangeX, attackRangeY, 0));
+        Gizmos.DrawSphere(attackPos.position, attackRadios);
     }
 
     private void Update()
