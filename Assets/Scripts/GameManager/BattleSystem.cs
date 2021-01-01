@@ -20,6 +20,9 @@ public class BattleSystem : MonoBehaviour
     int playerTwoCurrentAnimalTurn;
     GameObject currentActiveAnimal;
 
+    int playerOneTagPosition = 8;
+    int playerTwoTagPosition = 9;
+
     //Save camera's transform properties
     Vector3 positionCamera;
     Quaternion rotationCamera;
@@ -47,6 +50,10 @@ public class BattleSystem : MonoBehaviour
         {
             GameObject playerOneAnimal = Instantiate(playerOneArmy.getAnimal(i), playerOneArmy.BaseLocation);
             GameObject PlayerTwoAnimal = Instantiate(playerTwoArmy.getAnimal(i), playerTwoArmy.BaseLocation);
+
+            // each animal has tag to identify if belong to player one or to player two
+            playerOneAnimal.tag = UnityEditorInternal.InternalEditorUtility.tags[playerOneTagPosition];
+            PlayerTwoAnimal.tag = UnityEditorInternal.InternalEditorUtility.tags[playerTwoTagPosition];
 
             playerOneArmy.setAnimalObject(playerOneAnimal, i);
             playerTwoArmy.setAnimalObject(PlayerTwoAnimal, i);
