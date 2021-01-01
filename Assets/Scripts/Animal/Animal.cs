@@ -25,6 +25,10 @@ public abstract class Animal : MonoBehaviour, IBehavior
         Collider[] enemiesToDamage = Physics.OverlapSphere(attackPos.position, attackRadios, whatIsEnemies, QueryTriggerInteraction.UseGlobal);
         for (int i = 0; i < enemiesToDamage.Length; i++)
         {
+            if (gameObject.tag.Equals(enemiesToDamage[i].tag)) // check if teammate
+            {
+                continue;
+            }
             enemiesToDamage[i].GetComponentInChildren<HealthBar>().ReduceHP(getDamage()); // TODO make a script to deal damage of the enemy
         }
     }
