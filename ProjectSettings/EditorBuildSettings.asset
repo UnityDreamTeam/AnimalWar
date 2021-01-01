@@ -11,10 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Bridge.unity
     guid: f77b0ba830c2f514c847348fc075308e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Demo.unity
     guid: b9b162d4762e31f4094f3c2e8beb2213
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MainScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}
