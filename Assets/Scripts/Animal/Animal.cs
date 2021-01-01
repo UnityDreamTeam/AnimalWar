@@ -6,10 +6,10 @@ using UnityEngine;
 public abstract class Animal : MonoBehaviour, IBehavior
 {
     protected float currectHP;
-    [SerializeField] protected float maxHP;
+    [SerializeField] private float maxHP;
     [SerializeField] protected float damage = 0.1f;
     protected float shield;
-    [SerializeField] protected float walkSpeed = 3; //TODO fix
+    [SerializeField] protected float walkSpeed = 3;
 	protected Animator animator;
     private float rotationDegreePerSecond = 1000;
     bool delayAttack = false;
@@ -17,6 +17,8 @@ public abstract class Animal : MonoBehaviour, IBehavior
     [SerializeField] Transform attackPos = null;
     [SerializeField] float attackRadios;
     [SerializeField] LayerMask whatIsEnemies = default;
+
+    public float MaxHP { get => maxHP; set => maxHP = value; }
 
     public void attack()
     {
