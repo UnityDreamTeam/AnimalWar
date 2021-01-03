@@ -24,8 +24,8 @@ public class BattleSystem : MonoBehaviour
     int playerTwoCurrentAnimalTurn;
     GameObject currentActiveAnimal;
 
-    readonly int playerOneTagPosition = 7;
-    readonly int playerTwoTagPosition = 8;
+    readonly string playerOneTag = "PlayerOne";
+    readonly string playerTwoTag = "PlayerTwo";
 
     //Save camera's transform properties
     Vector3 positionCamera;
@@ -56,8 +56,8 @@ public class BattleSystem : MonoBehaviour
             GameObject PlayerTwoAnimal = Instantiate(playerTwoArmy.getAnimal(i), playerTwoArmy.BaseLocation);
 
             // each animal has tag to identify if belong to player one or to player two
-            playerOneAnimal.tag = UnityEditorInternal.InternalEditorUtility.tags[playerOneTagPosition];
-            PlayerTwoAnimal.tag = UnityEditorInternal.InternalEditorUtility.tags[playerTwoTagPosition];
+            playerOneAnimal.tag = playerOneTag;
+            PlayerTwoAnimal.tag = playerTwoTag;
 
             // change the color of the bar life of the player's animals
             playerOneAnimal.transform.Find("HealthBar/Bar/BarSprite").GetComponent<SpriteRenderer>().color = playerOneBarColor;
