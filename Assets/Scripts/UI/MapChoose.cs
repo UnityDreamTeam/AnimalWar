@@ -1,14 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MapChoose : MonoBehaviour
 {
     [SerializeField] Button[] maps = new Button[3];
+    
     private int currentMap;
     readonly int lowerBoundary = -1;
     readonly int higherBoundary = 3;
+
     // Start is called before the first frame update
     private void Start()
 	{
@@ -31,5 +34,10 @@ public class MapChoose : MonoBehaviour
             currentMap += change;
             selectMap(currentMap);
         }
+    }
+
+    public void startGame()
+    {
+        SceneManager.LoadScene(currentMap + 1);
     }
 }
