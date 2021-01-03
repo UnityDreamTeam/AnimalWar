@@ -848,6 +848,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4377963864379090294}
   - component: {fileID: 4377963864379090293}
+  - component: {fileID: 1245029975022899420}
+  - component: {fileID: 8034067857700238580}
+  - component: {fileID: 4034763964003023615}
   m_Layer: 0
   m_Name: wolf
   m_TagString: Untagged
@@ -868,6 +871,7 @@ Transform:
   m_Children:
   - {fileID: 4377963864578119215}
   - {fileID: 4377963863706834724}
+  - {fileID: 2679115376311292859}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
@@ -890,6 +894,52 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1245029975022899420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4377963864379090292}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bb271cc334bdf143be080910ba6322a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8034067857700238580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4377963864379090292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eb16a7f44d401c4dbc021f0bc57fd0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHP: 150
+  damage: 30
+  walkSpeed: 2.5
+  delayAttackTime: 1.4
+  attackPos: {fileID: 2679115376311292859}
+  attackRadius: 0.19
+  whatIsEnemies:
+    serializedVersion: 2
+    m_Bits: 256
+--- !u!65 &4034763964003023615
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4377963864379090292}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.87559426, z: 1.4439977}
+  m_Center: {x: 5.1514373e-17, y: 0.40579462, z: -0.0119999945}
 --- !u!1 &4377963864472050967
 GameObject:
   m_ObjectHideFlags: 0
@@ -1092,4 +1142,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4377963863936646128}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8106243367828940917
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2679115376311292859}
+  m_Layer: 0
+  m_Name: AttackPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2679115376311292859
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8106243367828940917}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -0, y: 0.52, z: 0.913}
+  m_LocalScale: {x: 0.99999976, y: 1, z: 0.99999976}
+  m_Children: []
+  m_Father: {fileID: 4377963864379090294}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
