@@ -17,7 +17,6 @@ public class HealthBar : MonoBehaviour
         setInfo();
         bar = transform.Find("Bar");
         bar.localScale = new Vector3(scaleFactor, scaleFactor);
-        
     }
 
     public void ReduceHP(float damage)
