@@ -815,7 +815,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 70
-  damage: 0.1
+  damage: 35
   walkSpeed: 3
   delayAttackTime: 1.8
   attackPos: {fileID: 8308567876527523580}
