@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class HealthBar : MonoBehaviour
@@ -13,6 +14,7 @@ public class HealthBar : MonoBehaviour
     public void Start()
     {
         hp = maxHP = GetComponentInParent<Animal>().MaxHP;
+        setInfo();
         bar = transform.Find("Bar");
         bar.localScale = new Vector3(scaleFactor, scaleFactor);
     }
@@ -21,9 +23,15 @@ public class HealthBar : MonoBehaviour
     {
         hp -= damage;
         bar.localScale = new Vector3(hp / maxHP, scaleFactor);
+        setInfo();
         if (hp <= 0)
         {
             Destroy(gameObject.transform.parent.gameObject);
         }
+    }
+
+    void setInfo()
+    {
+        transform.Find("Info").GetComponent<TextMeshPro>().text = "HP: " + hp + " atk: " + GetComponentInParent<Animal>().Damage;
     }
 }
