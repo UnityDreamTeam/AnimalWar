@@ -256,7 +256,7 @@ MonoBehaviour:
   offlineScene: Assets/Mirror/Examples/Room/Scenes/OfflineScene.unity
   onlineScene: Assets/Mirror/Examples/Room/Scenes/RoomScene.unity
   transport: {fileID: 2008127834}
-  networkAddress: localhost
+  networkAddress: 20.52.128.138
   maxConnections: 2
   disconnectInactiveConnections: 0
   disconnectInactiveTimeout: 60
