@@ -34,10 +34,4 @@ public class HealthBar : MonoBehaviour
     {
         transform.Find("Info").GetComponent<TextMeshPro>().text = "HP: " + hp + " atk: " + GetComponentInParent<Animal>().Damage;
     }
-
-    private void Update()
-    {
-        //TODO fix rotation of the text
-        //transform.Find("Info").transform.Rotate(new Vector3(0, gameObject.transform.parent.rotation.y - 90, 0));
-    }
 }
