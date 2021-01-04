@@ -19,6 +19,7 @@ public abstract class Animal : MonoBehaviour, IBehavior
     [SerializeField] LayerMask whatIsEnemies = default;
 
     public float MaxHP { get => maxHP; set => maxHP = value; }
+    public float Damage { get => damage; set => damage = value; }
 
     public void attack()
     {
