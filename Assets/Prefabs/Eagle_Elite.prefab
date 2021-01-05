@@ -746,6 +746,7 @@ GameObject:
   - component: {fileID: 2753917417695813502}
   - component: {fileID: 488092844122383810}
   - component: {fileID: 3750483567605980010}
+  - component: {fileID: -8802956103698617308}
   m_Layer: 8
   m_Name: Eagle_Elite
   m_TagString: Untagged
@@ -817,9 +818,9 @@ MonoBehaviour:
   maxHP: 70
   damage: 35
   walkSpeed: 3
-  delayAttackTime: 1.8
+  delayAttackTime: 1.3
   attackPos: {fileID: 8308567876527523580}
-  attackRadius: 0.1
+  attackRadius: 0.12
   whatIsEnemies:
     serializedVersion: 2
     m_Bits: 256
@@ -850,6 +851,22 @@ CapsuleCollider:
   m_Height: 0.5173324
   m_Direction: 1
   m_Center: {x: 0.00000051699385, y: 0.6792043, z: -0.030018568}
+--- !u!54 &-8802956103698617308
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3921204256997443775}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: Infinity
+  m_AngularDrag: Infinity
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 120
+  m_CollisionDetection: 0
 --- !u!1 &3921210670618743783
 GameObject:
   m_ObjectHideFlags: 0
@@ -1328,7 +1345,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5104768579135226321}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.541, y: 0.871, z: 0.341}
+  m_LocalPosition: {x: 0, y: 0.589, z: 0.341}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3918635392037736953}

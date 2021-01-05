@@ -546,6 +546,7 @@ GameObject:
   - component: {fileID: 4799348576345247261}
   - component: {fileID: -814459406824977197}
   - component: {fileID: 2864946478821673971}
+  - component: {fileID: 1924897654878624184}
   m_Layer: 8
   m_Name: spider
   m_TagString: Untagged
@@ -644,6 +645,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.5882814, y: 0.655043, z: 1.8143326}
   m_Center: {x: -0.022087162, y: 0.26967955, z: -0.15352184}
+--- !u!54 &1924897654878624184
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6197093423497793163}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: Infinity
+  m_AngularDrag: Infinity
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 120
+  m_CollisionDetection: 0
 --- !u!1 &6197093423497793165
 GameObject:
   m_ObjectHideFlags: 0
