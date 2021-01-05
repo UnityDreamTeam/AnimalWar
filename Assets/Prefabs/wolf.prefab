@@ -1265,6 +1265,7 @@ GameObject:
   - component: {fileID: 1245029975022899420}
   - component: {fileID: 8034067857700238580}
   - component: {fileID: 4034763964003023615}
+  - component: {fileID: -6332020822147551733}
   m_Layer: 0
   m_Name: wolf
   m_TagString: Untagged
@@ -1355,6 +1356,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.87559426, z: 1.4439977}
   m_Center: {x: 5.1514373e-17, y: 0.40579462, z: -0.0119999945}
+--- !u!54 &-6332020822147551733
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4377963864379090292}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: Infinity
+  m_AngularDrag: Infinity
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 120
+  m_CollisionDetection: 0
 --- !u!1 &4377963864472050967
 GameObject:
   m_ObjectHideFlags: 0

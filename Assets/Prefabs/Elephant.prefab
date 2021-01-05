@@ -1906,6 +1906,7 @@ GameObject:
   - component: {fileID: 5294475459714039592}
   - component: {fileID: 2842147684891060685}
   - component: {fileID: 4096821115288823747}
+  - component: {fileID: 3607240160225147916}
   m_Layer: 8
   m_Name: Elephant
   m_TagString: Untagged
@@ -2000,6 +2001,22 @@ CapsuleCollider:
   m_Height: 0.16535036
   m_Direction: 1
   m_Center: {x: 0.00000009488811, y: -0.01957606, z: 0.020342601}
+--- !u!54 &3607240160225147916
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2842147684891060691}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: Infinity
+  m_AngularDrag: Infinity
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 120
+  m_CollisionDetection: 0
 --- !u!1 &2842147684962045928
 GameObject:
   m_ObjectHideFlags: 0

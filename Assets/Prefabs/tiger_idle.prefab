@@ -10194,6 +10194,7 @@ GameObject:
   - component: {fileID: -2011116631732184557}
   - component: {fileID: 6965263161976962066}
   - component: {fileID: 3423375928598373064}
+  - component: {fileID: 8819822634461962826}
   m_Layer: 8
   m_Name: tiger_idle
   m_TagString: Untagged
@@ -10284,6 +10285,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.48386395, y: 0.70827454, z: 1.6701369}
   m_Center: {x: -0.020651571, y: 0.33277503, z: -0.13913256}
+--- !u!54 &8819822634461962826
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 266821337057484745}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: Infinity
+  m_AngularDrag: Infinity
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 120
+  m_CollisionDetection: 0
 --- !u!1 &266821337057484747
 GameObject:
   m_ObjectHideFlags: 0
