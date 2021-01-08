@@ -256,7 +256,7 @@ GameObject:
   m_Component:
   - component: {fileID: 91241911}
   m_Layer: 0
-  m_Name: Animal2
+  m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1308,7 +1308,7 @@ GameObject:
   m_Component:
   - component: {fileID: 362238577}
   m_Layer: 0
-  m_Name: Animal3
+  m_Name: 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3119,7 +3119,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1192567737}
   m_Layer: 0
-  m_Name: Animal5
+  m_Name: 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6053,7 +6053,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1550755850}
   m_Layer: 0
-  m_Name: Animal1
+  m_Name: 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6711,7 +6711,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2096902415}
   m_Layer: 0
-  m_Name: Animal4
+  m_Name: 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
