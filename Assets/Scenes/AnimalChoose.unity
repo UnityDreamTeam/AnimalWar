@@ -6200,11 +6200,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerOneArmyPosition: {fileID: 1670548277}
   playerOneArmy:
-  - {fileID: 3921204256997443775, guid: b8abf5e357968a943aef91d3490413a9, type: 3}
-  - {fileID: 3921204256997443775, guid: b8abf5e357968a943aef91d3490413a9, type: 3}
-  - {fileID: 3921204256997443775, guid: b8abf5e357968a943aef91d3490413a9, type: 3}
-  - {fileID: 3921204256997443775, guid: b8abf5e357968a943aef91d3490413a9, type: 3}
-  - {fileID: 3921204256997443775, guid: b8abf5e357968a943aef91d3490413a9, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  animalMap: 
 --- !u!4 &1839325685
 Transform:
   m_ObjectHideFlags: 0
