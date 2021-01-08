@@ -9,7 +9,7 @@ public class AnimalsChoose : MonoBehaviour
     [SerializeField] GameObject PlayerOneArmyPosition = null;
     [SerializeField] GameObject[] playerOneArmy;
     readonly int maxNumberOfAnimals = 5;
-    [SerializeField] int[] animalMap = null;
+    int[] animalMap = null;
     int countAnimals = 0;
 
     void Awake()
@@ -58,5 +58,10 @@ public class AnimalsChoose : MonoBehaviour
         playerOneArmy[indexToDelete] = null;
         countAnimals--;
         Destroy(EventSystem.current.currentSelectedGameObject);
+    }
+
+    public int[] getMap()
+    {
+        return animalMap;
     }
 }
