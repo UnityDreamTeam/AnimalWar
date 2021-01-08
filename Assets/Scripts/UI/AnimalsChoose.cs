@@ -7,14 +7,21 @@ using UnityEngine.UI;
 public class AnimalsChoose : MonoBehaviour
 {
     [SerializeField] GameObject PlayerOneArmyPosition = null;
-    GameObject[] playerOneArmy;
+    [SerializeField] GameObject[] playerOneArmy;
     readonly int maxNumberOfAnimals = 5;
+    [SerializeField] int[] animalMap = null;
     int countAnimals = 0;
+
+    void Awake()
+    {
+        DontDestroyOnLoad(this); // save for the next 
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         playerOneArmy = new GameObject[maxNumberOfAnimals];
+        animalMap = new int[maxNumberOfAnimals];
     }
 
     public void addAnimalToArmy()
@@ -36,6 +43,8 @@ public class AnimalsChoose : MonoBehaviour
                     selectedAnimal.transform.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
                     selectedAnimal.transform.transform.localPosition = Vector3.zero;
                     playerOneArmy[Int32.Parse(animalPos.name)] = animalSelected.transform.GetChild(0).gameObject;
+                    animalMap[Int32.Parse(animalPos.name)] = animalSelected.transform.GetChild(0)
+                        .gameObject.GetComponent<Animal>().GetID();
                     countAnimals++;
                     break;
                 }
