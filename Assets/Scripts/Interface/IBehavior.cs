@@ -6,4 +6,5 @@ public interface IBehavior
 {
     void attack();
     void move(Transform transform);
+    int GetID();
 }

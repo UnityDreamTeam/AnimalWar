@@ -8,6 +8,7 @@ public abstract class Animal : MonoBehaviour, IBehavior
     protected float currectHP;
     [SerializeField] private float maxHP;
     [SerializeField] protected float damage = 0.1f;
+    readonly int id = -1;
     protected float shield;
     [SerializeField] protected float walkSpeed = 3;
 	protected Animator animator;
@@ -93,6 +94,12 @@ public abstract class Animal : MonoBehaviour, IBehavior
         gameObject.GetComponent<Animator>().SetBool("Run", false);
     }
 
+    public virtual int GetID()
+    {
+        return Id;
+    }
+
+    protected int Id { get => id; }
     public float WalkSpeed { get => walkSpeed; set => walkSpeed = value; }
     public float MaxHP { get => maxHP; set => maxHP = value; }
     public float Damage { get => damage; set => damage = value; }
