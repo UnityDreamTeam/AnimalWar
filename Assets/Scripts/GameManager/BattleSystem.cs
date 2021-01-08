@@ -152,4 +152,6 @@ public class BattleSystem : MonoBehaviour
         //Zoom out
         Camera.main.orthographicSize += zoomIn;
     }
+
+    public Army PlayerOneArmy { get => playerOneArmy; set => playerOneArmy = value; }
 }
