@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public enum BattleState {START, PLAYER_ONE_TURN, PLAYER_TWO_TURN}
 
@@ -10,13 +8,14 @@ public class BattleSystem : MonoBehaviour
 
     [SerializeField] Army playerOneArmy = null;
     [SerializeField] Army playerTwoArmy = null;
+    [SerializeField] Army allAnimals = null;
 
     [SerializeField] float distanceBetweenArmies = 0;
     [SerializeField] float distanceBetweenAnimals = 0;
 
     [SerializeField] Color playerOneBarColor = Color.red;
     [SerializeField] Color playerTwoBarColor = Color.blue;
-    
+
     readonly int zoomIn = 3; //How much to zoom in object
     readonly int modulu_three = 3;
 
@@ -34,9 +33,17 @@ public class BattleSystem : MonoBehaviour
     // Awake is called before all Start() functions in the game
     void Awake()
     {
+        int[] map = GameObject.FindGameObjectWithTag("Animal_Chooser").GetComponent<AnimalsChoose>().getMap();
+        GameObject[] animals = new GameObject[map.Length];
+        for (int i =0; i < map.Length; i++)
+        {
+            Debug.Log(map[i]);
+            animals[i] = allAnimals.getAnimal(map[i]);
+        }
+
         //Initialize Army objects
         Army.ArmySize = playerOneArmy.Animals.Length;
-        playerOneArmy = new Army(playerOneArmy);
+        playerOneArmy = new Army(animals);
         playerTwoArmy = new Army(playerTwoArmy);
 
         positionCamera = Camera.main.transform.position;
