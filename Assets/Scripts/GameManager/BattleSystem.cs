@@ -47,7 +47,7 @@ public class BattleSystem : MonoBehaviour
 
         //Initialize Army objects
         Army.ArmySize = PlayerOneArmy.Animals.Length;
-        playerOneArmy = new Army(animals);
+        playerOneArmy = new Army(animals,PlayerOneArmy.BaseLocation);
         playerTwoArmy = new Army(playerTwoArmy);
 
         positionCamera = Camera.main.transform.position;
