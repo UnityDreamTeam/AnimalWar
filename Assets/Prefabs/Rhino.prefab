@@ -1248,6 +1248,7 @@ GameObject:
   - component: {fileID: -2986343342997654397}
   - component: {fileID: 1277356903033841039}
   - component: {fileID: -5039260249081089293}
+  - component: {fileID: 5119370905680130880}
   m_Layer: 8
   m_Name: Rhino
   m_TagString: Untagged
@@ -1322,7 +1323,7 @@ MonoBehaviour:
   walkSpeed: 3
   delayAttackTime: 1.7
   attackPos: {fileID: 2470503756713292021}
-  attackRadius: 0.1
+  attackRadius: 0.15
   whatIsEnemies:
     serializedVersion: 2
     m_Bits: 256
@@ -1348,7 +1349,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3519185067678992489}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 10
   m_Drag: Infinity
   m_AngularDrag: Infinity
   m_UseGravity: 1
@@ -1356,6 +1357,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
+--- !u!114 &5119370905680130880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3519185067678992489}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8407a5d0be8d688498b94033eee339da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxDistanceFromEnemy: 2.2
+  enemy:
+    serializedVersion: 2
+    m_Bits: 256
+  speed: 3
+  rotationSpeed: 5
+  delayAttackTime: 1.8
 --- !u!1 &3519185067678992491
 GameObject:
   m_ObjectHideFlags: 0

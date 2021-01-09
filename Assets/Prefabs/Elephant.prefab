@@ -1907,6 +1907,7 @@ GameObject:
   - component: {fileID: 2842147684891060685}
   - component: {fileID: 4096821115288823747}
   - component: {fileID: 3607240160225147916}
+  - component: {fileID: 785022544018077077}
   m_Layer: 8
   m_Name: Elephant
   m_TagString: Untagged
@@ -1983,7 +1984,7 @@ MonoBehaviour:
   walkSpeed: 2
   delayAttackTime: 1.75
   attackPos: {fileID: 2842147683580157676}
-  attackRadius: 0.1
+  attackRadius: 0.3
   whatIsEnemies:
     serializedVersion: 2
     m_Bits: 256
@@ -2009,7 +2010,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2842147684891060691}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 20
   m_Drag: Infinity
   m_AngularDrag: Infinity
   m_UseGravity: 1
@@ -2017,6 +2018,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
+--- !u!114 &785022544018077077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2842147684891060691}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8407a5d0be8d688498b94033eee339da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxDistanceFromEnemy: 2.2
+  enemy:
+    serializedVersion: 2
+    m_Bits: 256
+  speed: 3
+  rotationSpeed: 5
+  delayAttackTime: 1.8
 --- !u!1 &2842147684962045928
 GameObject:
   m_ObjectHideFlags: 0
