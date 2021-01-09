@@ -32,7 +32,7 @@ public class AnimalsChoose : MonoBehaviour
 
     public void addAnimalToArmy()
     {
-        if (countAnimals < maxNumberOfAnimals)
+        if (CountAnimals < maxNumberOfAnimals)
         {
             GameObject animalSelected = EventSystem.current.currentSelectedGameObject;
             GameObject selectedAnimal = Instantiate(EventSystem.current.currentSelectedGameObject,
@@ -51,7 +51,7 @@ public class AnimalsChoose : MonoBehaviour
                     playerOneArmy[Int32.Parse(animalPos.name)] = animalSelected.transform.GetChild(0).gameObject;
                     animalMap[Int32.Parse(animalPos.name)] = animalSelected.transform.GetChild(0)
                         .gameObject.GetComponent<Animal>().GetID();
-                    countAnimals++;
+                    CountAnimals++;
                     break;
                 }
             }
@@ -63,7 +63,7 @@ public class AnimalsChoose : MonoBehaviour
         int indexToDelete = Int32.Parse(EventSystem.current.currentSelectedGameObject.transform.parent.name);
         playerOneArmy[indexToDelete] = null;
         animalMap[indexToDelete] = empty;
-        countAnimals--;
+        CountAnimals--;
         Destroy(EventSystem.current.currentSelectedGameObject);
     }
 
@@ -71,4 +71,6 @@ public class AnimalsChoose : MonoBehaviour
     {
         return animalMap;
     }
+
+    public int CountAnimals { get => countAnimals; set => countAnimals = value; }
 }
