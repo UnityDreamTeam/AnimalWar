@@ -7,16 +7,27 @@ using UnityEngine.UI;
 
 public class MapChoose : MonoBehaviour
 {
+
+    public enum MAPS { BRIDGE, VOLACNO, DESERT }
+
     [SerializeField] Button[] maps;
-    private int currentMap;
+    [SerializeField] Text infoText = null;
+
+    MAPS currentMap;
+    AnimalsChoose script;
+
     readonly int lowerBoundary = -1;
     readonly int higherBoundary = 3;
+    readonly int minimumArmySize = 3;
+    readonly int mapsOffset = 2;
 
     // Start is called before the first frame update
     private void Start()
     {
-        currentMap = 0;
-        transform.GetChild(currentMap).gameObject.SetActive(true);
+        currentMap = MAPS.BRIDGE;
+
+        transform.GetChild((int)currentMap).gameObject.SetActive(true);
+        script = GameObject.FindGameObjectWithTag("Animal_Chooser").GetComponent<AnimalsChoose>();
     }
 
     void selectMap(int index)
@@ -29,15 +40,23 @@ public class MapChoose : MonoBehaviour
 
     public void changeMap(int change)
     {
-        if (change + currentMap != lowerBoundary && change + currentMap != higherBoundary)
+        if (change + (int)currentMap != lowerBoundary && change + (int)currentMap != higherBoundary)
         {
             currentMap += change;
-            selectMap(currentMap);
+            selectMap((int)currentMap);
         }
     }
 
     public void startGame()
     {
-        SceneManager.LoadScene(currentMap + 2);
+        if (script.CountAnimals >= minimumArmySize)
+        {
+            SceneManager.LoadScene((int)(currentMap + mapsOffset));
+            infoText.enabled = false;
+        }
+        else
+        {
+            infoText.enabled = true;
+        }
     }
 }

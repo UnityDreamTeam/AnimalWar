@@ -43,13 +43,13 @@ public class TurnTimer : MonoBehaviour
         information.enabled = false;
 
         script.focusOnActiveAnimal();
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1.5f);
         script.returnFocusToNormal();
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
 
         //Enable movement only after pronauncing on player's turn
         go.enabled = true;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         script.enableCurrentAnimalMovement();
         go.enabled = false;
 

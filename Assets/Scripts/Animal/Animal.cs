@@ -20,8 +20,10 @@ public abstract class Animal : MonoBehaviour, IBehavior
     [SerializeField] LayerMask whatIsEnemies = default;
 
 
-    public void attack()
+    public bool attack()
     {
+        bool isDead = false;
+
         Collider[] enemiesToDamage = Physics.OverlapSphere(attackPos.position, attackRadius, whatIsEnemies, QueryTriggerInteraction.UseGlobal);
         for (int i = 0; i < enemiesToDamage.Length; i++)
         {
@@ -29,8 +31,14 @@ public abstract class Animal : MonoBehaviour, IBehavior
             {
                 continue;
             }
-            enemiesToDamage[i].GetComponentInChildren<HealthBar>().ReduceHP(Damage);
+
+            if(enemiesToDamage[i].GetComponentInChildren<HealthBar>().ReduceHP(Damage))
+            {
+                isDead = true;
+            }
         }
+
+        return isDead;
     }
 
     public void move(Transform transform)

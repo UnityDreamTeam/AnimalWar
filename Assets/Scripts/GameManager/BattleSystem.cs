@@ -36,6 +36,7 @@ public class BattleSystem : MonoBehaviour
     {
         int[] map = GameObject.FindGameObjectWithTag("Animal_Chooser").GetComponent<AnimalsChoose>().getMap();
         GameObject[] animals = new GameObject[map.Length];
+
         for (int i =0; i < map.Length; i++)
         {
             if (map[i] != empty)
@@ -45,8 +46,8 @@ public class BattleSystem : MonoBehaviour
         }
 
         //Initialize Army objects
-        Army.ArmySize = playerOneArmy.Animals.Length;
-        playerOneArmy = new Army(animals);
+        Army.ArmySize = PlayerOneArmy.Animals.Length;
+        playerOneArmy = new Army(animals,PlayerOneArmy.BaseLocation);
         playerTwoArmy = new Army(playerTwoArmy);
 
         positionCamera = Camera.main.transform.position;
@@ -153,11 +154,20 @@ public class BattleSystem : MonoBehaviour
     {
         currentActiveAnimal.GetComponent<AnimalController>().enabled = false;
         currentActiveAnimal.GetComponent<Animal>().disableMovement();
+
+        if (currentActiveAnimal.GetComponent<Computer>() != null)
+        {
+            currentActiveAnimal.GetComponent<Computer>().enabled = false;
+        }
     }
 
     public void enableCurrentAnimalMovement()
     {
         currentActiveAnimal.GetComponent<AnimalController>().enabled = true;
+        if (currentActiveAnimal.GetComponent<Computer>() != null)
+        {
+            currentActiveAnimal.GetComponent<Computer>().enabled = true;
+        }
     }
 
     public void focusOnActiveAnimal()
