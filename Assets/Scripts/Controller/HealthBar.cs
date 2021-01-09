@@ -19,15 +19,20 @@ public class HealthBar : MonoBehaviour
         bar.localScale = new Vector3(scaleFactor, scaleFactor);
     }
 
-    public void ReduceHP(float damage)
+    public bool ReduceHP(float damage)
     {
+        bool isTargetDead = false;
+
         hp -= damage;
         bar.localScale = new Vector3(hp / maxHP, scaleFactor);
         setInfo();
         if (hp <= 0)
         {
             Destroy(gameObject.transform.parent.gameObject);
+            isTargetDead = true;
         }
+
+        return isTargetDead;
     }
 
     void setInfo()

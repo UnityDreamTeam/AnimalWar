@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface IBehavior
 {
-    void attack();
+    bool attack();
     void move(Transform transform);
     int GetID();
 }
