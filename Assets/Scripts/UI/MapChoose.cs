@@ -1,25 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MapChoose : MonoBehaviour
 {
-    [SerializeField] Button[] maps = new Button[3];
-    
+    [SerializeField] int numOfMaps = 0;
+    [SerializeField] Button[] maps;
     private int currentMap;
     readonly int lowerBoundary = -1;
     readonly int higherBoundary = 3;
 
     // Start is called before the first frame update
     private void Start()
-	{
+    {
         currentMap = 0;
         transform.GetChild(currentMap).gameObject.SetActive(true);
     }
 
-	void selectMap(int index)
+    void selectMap(int index)
     {
         for (int i = 0; i < transform.childCount; i++)
         {
@@ -38,6 +39,6 @@ public class MapChoose : MonoBehaviour
 
     public void startGame()
     {
-        SceneManager.LoadScene(currentMap + 1);
+        SceneManager.LoadScene(currentMap + 2);
     }
 }

@@ -8,6 +8,7 @@ public abstract class Animal : MonoBehaviour, IBehavior
     protected float currectHP;
     [SerializeField] private float maxHP;
     [SerializeField] protected float damage = 0.1f;
+    readonly int id = -1;
     protected float shield;
     [SerializeField] protected float walkSpeed = 3;
 	protected Animator animator;
@@ -18,8 +19,6 @@ public abstract class Animal : MonoBehaviour, IBehavior
     [SerializeField] float attackRadius = 0.1f;
     [SerializeField] LayerMask whatIsEnemies = default;
 
-    public float MaxHP { get => maxHP; set => maxHP = value; }
-    public float Damage { get => damage; set => damage = value; }
 
     public void attack()
     {
@@ -30,7 +29,7 @@ public abstract class Animal : MonoBehaviour, IBehavior
             {
                 continue;
             }
-            enemiesToDamage[i].GetComponentInChildren<HealthBar>().ReduceHP(getDamage());
+            enemiesToDamage[i].GetComponentInChildren<HealthBar>().ReduceHP(Damage);
         }
     }
 
@@ -57,7 +56,7 @@ public abstract class Animal : MonoBehaviour, IBehavior
             gameObject.GetComponentInChildren<Animator>().SetBool("Run", false);
         }
 
-        transform.position += position * Time.deltaTime * getWalkSpeed();
+        transform.position += position * Time.deltaTime * WalkSpeed;
     }
 
     private void OnDrawGizmosSelected()
@@ -95,13 +94,13 @@ public abstract class Animal : MonoBehaviour, IBehavior
         gameObject.GetComponent<Animator>().SetBool("Run", false);
     }
 
-    public float getWalkSpeed()
+    public virtual int GetID()
     {
-        return this.walkSpeed;
+        return Id;
     }
 
-    public float getDamage()
-    {
-        return this.damage;
-    }
+    protected int Id { get => id; }
+    public float WalkSpeed { get => walkSpeed; set => walkSpeed = value; }
+    public float MaxHP { get => maxHP; set => maxHP = value; }
+    public float Damage { get => damage; set => damage = value; }
 }

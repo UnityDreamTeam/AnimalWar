@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [System.Serializable]
 public class Army
@@ -18,6 +16,11 @@ public class Army
         this.animals_objects = new GameObject[armySize];
     }
 
+    public Army(GameObject[] animals)
+    {
+        this.animals = animals;
+        this.animals_objects = new GameObject[armySize];
+    }
     public Transform BaseLocation { get => baseLocation; }
     public static int ArmySize { get => armySize; set => armySize = value; }
     public GameObject[] Animals { get => animals; }
