@@ -17,9 +17,7 @@ public class Computer : MonoBehaviour
     [SerializeField] float delayAttackTime = 1.8f;
     bool delayAttack = false;
 
-    bool initializeBeforeTurn = false;
-
-    void Awake()
+    void Start()
     {
         GameObject BattleSystem = GameObject.FindGameObjectWithTag("Battle_System");
         script = BattleSystem.GetComponent<BattleSystem>();
@@ -32,12 +30,7 @@ public class Computer : MonoBehaviour
     {
         if (script.getCurrentPlayerTurn() == BattleState.PLAYER_TWO_TURN)
         {
-            //if (!initializeBeforeTurn)
-            //{
-                InitializeBeforeTurn();
-                initializeBeforeTurn = true;
-            //}
-            //SetTarget(closest);
+            InitializeBeforeTurn();
 
             float step = speed * Time.deltaTime;//How much to go towards the target
 
@@ -73,22 +66,12 @@ public class Computer : MonoBehaviour
             if (!delayAttack && reached_target)
             {
                 //If the attack killed the enemy
-                if (gameObject.GetComponent<Animal>().attack())
-                {
-                    initializeBeforeTurn = false;
-                }
-                else
-                {
-                    delayAttack = true;
-                    StartCoroutine(AttackLock());
-                }
+                gameObject.GetComponent<Animal>().attack();
+                delayAttack = true;
+                StartCoroutine(AttackLock());
 
                 gameObject.GetComponent<Animator>().SetBool("Attack", true);
             }
-        }
-        else
-        {
-            initializeBeforeTurn = false;
         }
     }
 
