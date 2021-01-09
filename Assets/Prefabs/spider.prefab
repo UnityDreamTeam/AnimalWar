@@ -547,6 +547,7 @@ GameObject:
   - component: {fileID: -814459406824977197}
   - component: {fileID: 2864946478821673971}
   - component: {fileID: 1924897654878624184}
+  - component: {fileID: -5100732379146136605}
   m_Layer: 8
   m_Name: spider
   m_TagString: Untagged
@@ -624,11 +625,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 100
-  damage: 70
-  walkSpeed: 4
-  delayAttackTime: 1.8
+  damage: 22
+  walkSpeed: 4.2
+  delayAttackTime: 1.5
   attackPos: {fileID: 7750061340994616893}
-  attackRadius: 0.18
+  attackRadius: 0.2
   whatIsEnemies:
     serializedVersion: 2
     m_Bits: 256
@@ -661,6 +662,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
+--- !u!114 &-5100732379146136605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6197093423497793163}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8407a5d0be8d688498b94033eee339da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxDistanceFromEnemy: 1.6
+  enemy:
+    serializedVersion: 2
+    m_Bits: 256
+  speed: 4.2
+  rotationSpeed: 5
+  delayAttackTime: 1.5
 --- !u!1 &6197093423497793165
 GameObject:
   m_ObjectHideFlags: 0
