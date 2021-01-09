@@ -1979,12 +1979,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9ad2d19a293dda4bb3a71d7fe0549ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 350
+  maxHP: 400
   damage: 30
   walkSpeed: 2
   delayAttackTime: 1.75
   attackPos: {fileID: 2842147683580157676}
-  attackRadius: 0.3
+  attackRadius: 0.35
   whatIsEnemies:
     serializedVersion: 2
     m_Bits: 256

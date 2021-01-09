@@ -10195,6 +10195,7 @@ GameObject:
   - component: {fileID: 6965263161976962066}
   - component: {fileID: 3423375928598373064}
   - component: {fileID: 8819822634461962826}
+  - component: {fileID: 5972786187564325373}
   m_Layer: 8
   m_Name: tiger_idle
   m_TagString: Untagged
@@ -10263,12 +10264,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55e7e38ffc7001c40883ffaa42306911, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 100
-  damage: 70
+  maxHP: 120
+  damage: 55
   walkSpeed: 3.5
   delayAttackTime: 1.4
   attackPos: {fileID: 3564733840597497649}
-  attackRadius: 0.1
+  attackRadius: 0.11
   whatIsEnemies:
     serializedVersion: 2
     m_Bits: 256
@@ -10301,6 +10302,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
+--- !u!114 &5972786187564325373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 266821337057484745}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8407a5d0be8d688498b94033eee339da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxDistanceFromEnemy: 1.5
+  enemy:
+    serializedVersion: 2
+    m_Bits: 256
+  speed: 3.5
+  rotationSpeed: 5
+  delayAttackTime: 1.4
 --- !u!1 &266821337057484747
 GameObject:
   m_ObjectHideFlags: 0

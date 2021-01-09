@@ -1266,6 +1266,7 @@ GameObject:
   - component: {fileID: 8034067857700238580}
   - component: {fileID: 4034763964003023615}
   - component: {fileID: -6332020822147551733}
+  - component: {fileID: -2078574527464646869}
   m_Layer: 0
   m_Name: wolf
   m_TagString: Untagged
@@ -1334,12 +1335,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eb16a7f44d401c4dbc021f0bc57fd0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 150
-  damage: 30
-  walkSpeed: 2.5
-  delayAttackTime: 1.4
+  maxHP: 160
+  damage: 32
+  walkSpeed: 3.6
+  delayAttackTime: 1.1
   attackPos: {fileID: 2679115376311292859}
-  attackRadius: 0.19
+  attackRadius: 0.2
   whatIsEnemies:
     serializedVersion: 2
     m_Bits: 256
@@ -1372,6 +1373,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
+--- !u!114 &-2078574527464646869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4377963864379090292}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8407a5d0be8d688498b94033eee339da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxDistanceFromEnemy: 2
+  enemy:
+    serializedVersion: 2
+    m_Bits: 256
+  speed: 3.6
+  rotationSpeed: 5
+  delayAttackTime: 1.1
 --- !u!1 &4377963864472050967
 GameObject:
   m_ObjectHideFlags: 0
