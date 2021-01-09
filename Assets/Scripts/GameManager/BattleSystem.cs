@@ -90,8 +90,18 @@ public class BattleSystem : MonoBehaviour
         }
 
         state = BattleState.PLAYER_ONE_TURN;
-        //Set first animal to play (player #1)
-        currentActiveAnimal = playerOneArmy.getAnimalObject(playerOneCurrentAnimalTurn++);
+
+        for (int i = 0; i < Army.ArmySize; i++)
+        {
+            if (playerOneArmy.getAnimal(i) != null) // find the first animal in the array
+            {
+                //Set first animal to play (player #1)
+                currentActiveAnimal = playerOneArmy.getAnimalObject(playerOneCurrentAnimalTurn++);
+                break;
+            }
+
+            playerOneCurrentAnimalTurn++;
+        }
     }
 
     void placeAnimalOnMap(GameObject animal, float x, float y)
@@ -124,7 +134,7 @@ public class BattleSystem : MonoBehaviour
                 //Shifting to the next animal
                 playerTwoCurrentAnimalTurn++;
                 playerTwoCurrentAnimalTurn %= Army.ArmySize;
-            }while(currentActiveAnimal == null);
+            } while(currentActiveAnimal == null);
         }
         else
         {
