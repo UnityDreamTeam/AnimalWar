@@ -6,6 +6,7 @@ public class BattleSystem : MonoBehaviour
 {
     BattleState state; //Current battle state
 
+    [SerializeField] int armySize = 4;
     [SerializeField] Army playerOneArmy = null;
     [SerializeField] Army playerTwoArmy = null;
     [SerializeField] Army allAnimals = null;
@@ -31,6 +32,8 @@ public class BattleSystem : MonoBehaviour
     Vector3 positionCamera;
     Quaternion rotationCamera;
 
+    public Army PlayerOneArmy { get => playerOneArmy; set => playerOneArmy = value; }
+
     // Awake is called before all Start() functions in the game
     void Awake()
     {
@@ -45,7 +48,7 @@ public class BattleSystem : MonoBehaviour
         }
 
         //Initialize Army objects
-        Army.ArmySize = playerOneArmy.Animals.Length;
+        Army.ArmySize = armySize;
         playerOneArmy = new Army(animals);
         playerTwoArmy = new Army(playerTwoArmy);
 
@@ -153,11 +156,20 @@ public class BattleSystem : MonoBehaviour
     {
         currentActiveAnimal.GetComponent<AnimalController>().enabled = false;
         currentActiveAnimal.GetComponent<Animal>().disableMovement();
+
+        if (currentActiveAnimal.GetComponent<Computer>() != null)
+        {
+            currentActiveAnimal.GetComponent<Computer>().enabled = false;
+        }
     }
 
     public void enableCurrentAnimalMovement()
     {
         currentActiveAnimal.GetComponent<AnimalController>().enabled = true;
+        if (currentActiveAnimal.GetComponent<Computer>() != null)
+        {
+            currentActiveAnimal.GetComponent<Computer>().enabled = true;
+        }
     }
 
     public void focusOnActiveAnimal()
