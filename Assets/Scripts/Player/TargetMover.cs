@@ -26,8 +26,6 @@ public class TargetMover: MonoBehaviour {
     [Tooltip("The target position in grid coordinates")]
     [SerializeField] Vector3Int targetInGrid;
 
-    bool animated;
-
     protected bool atTarget;  // This property is set to "true" whenever the object has already found the target.
     IPathFinder<Vector3Int> pathFinder; //This property uses to choose path finding algorithm at runtime
 
@@ -59,14 +57,15 @@ public class TargetMover: MonoBehaviour {
         }*/
     }
     protected virtual void Start() {
-        animated = true;
+        tilemap = GameObject.FindGameObjectWithTag("Tile_Map").GetComponent<Tilemap>();
+        allowedTiles = GameObject.FindGameObjectWithTag("Allowed_Tiles").GetComponent<AllowedTiles>();
+
         //pathFinder = new BFS<Vector3Int>();//Initialize to BFS algorithm
         pathFinder = new Dijkstra<Vector3Int>();
 
         tilemapGraph = new TilemapGraph(tilemap, allowedTiles.Get());
         timeBetweenSteps = 1 / speed;
         StartCoroutine(MoveTowardsTheTarget());
-        
     }
 
     IEnumerator MoveTowardsTheTarget() {
@@ -82,17 +81,11 @@ public class TargetMover: MonoBehaviour {
                 currentWeight = allowedTiles.GetWeight(playerTile);
             }
 
-            //timeBetweenSteps = 1 / (speed / currentWeight);
+            timeBetweenSteps = 1 / (speed / currentWeight);
 
-            timeBetweenSteps = 1f;
             yield return new WaitForSeconds(timeBetweenSteps);
             if (enabled && !atTarget)
             {
-                if (animated)
-                {
-                    gameObject.GetComponentInChildren<Animator>().SetBool("Run", true);
-                    animated = false;
-                }
                 MakeOneStepTowardsTheTarget();
             }
         }
@@ -109,10 +102,11 @@ public class TargetMover: MonoBehaviour {
         if (shortestPath.Count >= 2) {
             Vector3Int nextNode = shortestPath[1];
             transform.position = tilemap.GetCellCenterWorld(nextNode);
+            transform.position = new Vector3(transform.position.x, transform.position.y, 0);
         } else {
             atTarget = true;
-            gameObject.GetComponentInChildren<Animator>().SetBool("Run", false);
-            animated = true;
+            gameObject.GetComponent<ClickMover>().disableAnimation();
+            gameObject.GetComponent<Animal>().attack();
         }
     }
 }

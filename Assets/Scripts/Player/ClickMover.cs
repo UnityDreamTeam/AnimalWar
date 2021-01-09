@@ -8,10 +8,30 @@ using UnityEngine;
  * Uses BFS to find the shortest path from the current location to the new location.
  */
 public class ClickMover: TargetMover {
+    bool activateAnimation = false;
     void Update() {
         if (Input.GetMouseButton(0)) {
             Vector3 newTarget = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             SetTarget(newTarget);
+            activateAnimation = true;
+        }
+
+        lock (this)
+        {
+            if (activateAnimation)
+            {
+                gameObject.GetComponentInChildren<Animator>().SetBool("Run", true);
+            }
+        }
+
+    }
+
+    public void disableAnimation()
+    {
+        lock (this)
+        {
+            activateAnimation = false;
+            gameObject.GetComponentInChildren<Animator>().SetBool("Run", false);
         }
     }
 }
