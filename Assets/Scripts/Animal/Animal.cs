@@ -32,7 +32,7 @@ public abstract class Animal : MonoBehaviour, IBehavior
                 continue;
             }
 
-            if(enemiesToDamage[i].GetComponentInChildren<HealthBar>().ReduceHP(getDamage()))
+            if(enemiesToDamage[i].GetComponentInChildren<HealthBar>().ReduceHP(Damage))
             {
                 isDead = true;
             }
