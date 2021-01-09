@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public class MapChoose : MonoBehaviour
 {
-    [SerializeField] int numOfMaps = 0;
     [SerializeField] Button[] maps;
     private int currentMap;
     readonly int lowerBoundary = -1;
