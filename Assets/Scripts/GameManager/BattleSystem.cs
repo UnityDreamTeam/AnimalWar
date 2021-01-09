@@ -9,6 +9,7 @@ public class BattleSystem : MonoBehaviour
     [SerializeField] Army playerOneArmy = null;
     [SerializeField] Army playerTwoArmy = null;
     [SerializeField] Army allAnimals = null;
+    readonly int empty = -1;
 
     [SerializeField] float distanceBetweenArmies = 0;
     [SerializeField] float distanceBetweenAnimals = 0;
@@ -37,8 +38,10 @@ public class BattleSystem : MonoBehaviour
         GameObject[] animals = new GameObject[map.Length];
         for (int i =0; i < map.Length; i++)
         {
-            Debug.Log(map[i]);
-            animals[i] = allAnimals.getAnimal(map[i]);
+            if (map[i] != empty)
+            {
+                animals[i] = allAnimals.getAnimal(map[i]);
+            }
         }
 
         //Initialize Army objects
@@ -56,32 +59,34 @@ public class BattleSystem : MonoBehaviour
 
     void SetUpBattle()
     {
-        //TODO: change to player's animals pick
         for (int i = 0; i < Army.ArmySize; i++)
         {
-            GameObject playerOneAnimal = Instantiate(playerOneArmy.getAnimal(i), playerOneArmy.BaseLocation);
-            GameObject PlayerTwoAnimal = Instantiate(playerTwoArmy.getAnimal(i), playerTwoArmy.BaseLocation);
+            if (playerOneArmy.getAnimal(i) != null)
+            {
+                GameObject playerOneAnimal = Instantiate(playerOneArmy.getAnimal(i), playerOneArmy.BaseLocation);
+                GameObject PlayerTwoAnimal = Instantiate(playerTwoArmy.getAnimal(i), playerTwoArmy.BaseLocation);
 
-            // each animal has tag to identify if belong to player one or to player two
-            playerOneAnimal.tag = playerOneTag;
-            PlayerTwoAnimal.tag = playerTwoTag;
+                // each animal has tag to identify if belong to player one or to player two
+                playerOneAnimal.tag = playerOneTag;
+                PlayerTwoAnimal.tag = playerTwoTag;
 
-            // change the color of the bar life of the player's animals
-            playerOneAnimal.transform.Find("HealthBar/Bar/BarSprite").GetComponent<SpriteRenderer>().color = playerOneBarColor;
-            PlayerTwoAnimal.transform.Find("HealthBar/Bar/BarSprite").GetComponent<SpriteRenderer>().color = playerTwoBarColor;
+                // change the color of the bar life of the player's animals
+                playerOneAnimal.transform.Find("HealthBar/Bar/BarSprite").GetComponent<SpriteRenderer>().color = playerOneBarColor;
+                PlayerTwoAnimal.transform.Find("HealthBar/Bar/BarSprite").GetComponent<SpriteRenderer>().color = playerTwoBarColor;
 
-            playerOneArmy.setAnimalObject(playerOneAnimal, i);
-            playerTwoArmy.setAnimalObject(PlayerTwoAnimal, i);
+                playerOneArmy.setAnimalObject(playerOneAnimal, i);
+                playerTwoArmy.setAnimalObject(PlayerTwoAnimal, i);
 
-            //Set position to animal of army #1
-            placeAnimalOnMap(playerOneAnimal, playerOneAnimal.transform.position.x, playerOneAnimal.transform.position.y - i * distanceBetweenAnimals);
+                //Set position to animal of army #1
+                placeAnimalOnMap(playerOneAnimal, playerOneAnimal.transform.position.x, playerOneAnimal.transform.position.y - i * distanceBetweenAnimals);
 
-            //Set position to animal of army #2
-            placeAnimalOnMap(PlayerTwoAnimal, PlayerTwoAnimal.transform.position.x + distanceBetweenArmies,
-                PlayerTwoAnimal.transform.position.y - i * distanceBetweenAnimals);
+                //Set position to animal of army #2
+                placeAnimalOnMap(PlayerTwoAnimal, PlayerTwoAnimal.transform.position.x + distanceBetweenArmies,
+                    PlayerTwoAnimal.transform.position.y - i * distanceBetweenAnimals);
 
-            //Set rotation to animal of army #2
-            rotateAnimal(PlayerTwoAnimal);
+                //Set rotation to animal of army #2
+                rotateAnimal(PlayerTwoAnimal);
+            }
         }
 
         state = BattleState.PLAYER_ONE_TURN;

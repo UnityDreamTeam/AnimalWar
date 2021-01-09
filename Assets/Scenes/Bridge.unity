@@ -327,7 +327,7 @@ MonoBehaviour:
     - {fileID: 3519185067678992489, guid: bd4595248a83b2548bf456be8cf2d7d8, type: 3}
     - {fileID: 3519185067678992489, guid: bd4595248a83b2548bf456be8cf2d7d8, type: 3}
     baseLocation: {fileID: 387590426}
-  dekelArmy:
+  allAnimals:
     animals:
     - {fileID: 2842147684891060691, guid: 14acd5fa0d249fe47b226630555121b4, type: 3}
     - {fileID: 3921204256997443775, guid: b8abf5e357968a943aef91d3490413a9, type: 3}

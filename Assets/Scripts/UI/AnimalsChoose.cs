@@ -12,6 +12,7 @@ public class AnimalsChoose : MonoBehaviour
     readonly float scaleMiniAnimal = 0.5f;
     int[] animalMap = null;
     int countAnimals = 0;
+    readonly int empty = -1;
 
     void Awake()
     {
@@ -23,6 +24,10 @@ public class AnimalsChoose : MonoBehaviour
     {
         playerOneArmy = new GameObject[maxNumberOfAnimals];
         animalMap = new int[maxNumberOfAnimals];
+        for (int i = 0; i < animalMap.Length; i++)
+        {
+            animalMap[i] = empty;
+        }
     }
 
     public void addAnimalToArmy()
@@ -57,6 +62,7 @@ public class AnimalsChoose : MonoBehaviour
     {
         int indexToDelete = Int32.Parse(EventSystem.current.currentSelectedGameObject.transform.parent.name);
         playerOneArmy[indexToDelete] = null;
+        animalMap[indexToDelete] = empty;
         countAnimals--;
         Destroy(EventSystem.current.currentSelectedGameObject);
     }
