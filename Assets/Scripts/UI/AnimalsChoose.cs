@@ -9,6 +9,7 @@ public class AnimalsChoose : MonoBehaviour
     [SerializeField] GameObject PlayerOneArmyPosition = null;
     [SerializeField] GameObject[] playerOneArmy;
     readonly int maxNumberOfAnimals = 5;
+    readonly float scaleMiniAnimal = 0.5f;
     int[] animalMap = null;
     int countAnimals = 0;
 
@@ -40,7 +41,7 @@ public class AnimalsChoose : MonoBehaviour
                 if (animalPos.childCount == 0) // dont have child
                 {
                     selectedAnimal.transform.SetParent(animalPos);
-                    selectedAnimal.transform.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+                    selectedAnimal.transform.transform.localScale = new Vector3(scaleMiniAnimal, scaleMiniAnimal, scaleMiniAnimal);
                     selectedAnimal.transform.transform.localPosition = Vector3.zero;
                     playerOneArmy[Int32.Parse(animalPos.name)] = animalSelected.transform.GetChild(0).gameObject;
                     animalMap[Int32.Parse(animalPos.name)] = animalSelected.transform.GetChild(0)
