@@ -18,13 +18,14 @@ public abstract class Animal : MonoBehaviour, IBehavior
     [SerializeField] Transform attackPos = null;
     [SerializeField] float attackRadius = 0.1f;
     [SerializeField] LayerMask whatIsEnemies = default;
+    [SerializeField] Vector3 halfExtents = default;
 
 
     public bool attack()
     {
         bool isDead = false;
 
-        Collider[] enemiesToDamage = Physics.OverlapSphere(attackPos.position, attackRadius, whatIsEnemies, QueryTriggerInteraction.UseGlobal);
+        Collider[] enemiesToDamage = Physics.OverlapBox(attackPos.position, halfExtents, Quaternion.identity, whatIsEnemies, QueryTriggerInteraction.UseGlobal);
         for (int i = 0; i < enemiesToDamage.Length; i++)
         {
             if (gameObject.tag.Equals(enemiesToDamage[i].tag)) // check if teammate
@@ -70,7 +71,7 @@ public abstract class Animal : MonoBehaviour, IBehavior
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawSphere(attackPos.position, attackRadius);
+        Gizmos.DrawCube(attackPos.position, halfExtents);
     }
 
     private void Update()
@@ -89,6 +90,8 @@ public abstract class Animal : MonoBehaviour, IBehavior
             delayAttack = true;
             StartCoroutine(attackLock());
         }
+
+        transform.position = new Vector3(transform.position.x, transform.position.y, 0);
     }
 
     IEnumerator attackLock()
