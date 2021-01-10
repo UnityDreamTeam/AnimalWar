@@ -10,7 +10,7 @@ public class MapChoose : MonoBehaviour
 
     public enum MAPS { BRIDGE, VOLACNO, DESERT, BRIDGE2 }
 
-    [SerializeField] Button[] maps;
+    [SerializeField] Button[] maps = null;
     [SerializeField] Text infoText = null;
 
     MAPS currentMap;
