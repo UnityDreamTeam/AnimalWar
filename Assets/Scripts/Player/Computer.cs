@@ -40,11 +40,10 @@ public class Computer : MonoBehaviour
                 gameObject.GetComponentInChildren<Animator>().SetBool("Run", true);
 
                 //rotate to look at the player
-                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(closest.position - transform.position), rotationSpeed * Time.deltaTime);
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(closest.position - transform.position), rotationSpeed * Time.deltaTime);
 
-                Vector3 positieVoor = closest.position + closest.forward * 2f;
-                Debug.Log("transform forward is: " + transform.forward);
-                transform.position = Vector3.MoveTowards(transform.position, positieVoor, step);
+                //Vector3 positieVoor = closest.position + closest.forward * 2f;
+                transform.position = Vector3.MoveTowards(transform.position, closest.position, step);
             }
             else if (transform.position.y - closest.position.y > 0.00001f)
             {
@@ -53,28 +52,30 @@ public class Computer : MonoBehaviour
                 transform.position = Vector3.MoveTowards(transform.position, upDownVector, step);
 
                 //rotate to look at the player
-                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(closest.position - transform.position), rotationSpeed * Time.deltaTime);
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(closest.position - transform.position), rotationSpeed * Time.deltaTime);
             }
             else
             {
                 gameObject.GetComponentInChildren<Animator>().SetBool("Run", false);
+
+                //If we reached the target
+                if (!delayAttack)
+                {
+                    //If the attack killed the enemy
+                    gameObject.GetComponent<Animal>().attack();
+                    delayAttack = true;
+                    StartCoroutine(AttackLock());
+
+                    gameObject.GetComponent<Animator>().SetBool("Attack", true);
+                }
             }
             
 
-            bool reached_target = Physics.Raycast(transform.position, transform.forward, maxDistanceFromEnemy, enemy);
-            //If we reached the target
-            if (!delayAttack && reached_target)
-            {
-                //If the attack killed the enemy
-                gameObject.GetComponent<Animal>().attack();
-                delayAttack = true;
-                StartCoroutine(AttackLock());
-
-                gameObject.GetComponent<Animator>().SetBool("Attack", true);
-            }
+            //bool reached_target = Physics.Raycast(transform.position, transform.forward, maxDistanceFromEnemy, enemy);
         }
     }
 
+    
     IEnumerator AttackLock()
     {
         yield return new WaitForSeconds(delayAttackTime);
