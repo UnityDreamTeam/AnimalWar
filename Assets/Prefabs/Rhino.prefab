@@ -1323,10 +1323,11 @@ MonoBehaviour:
   walkSpeed: 2.85
   delayAttackTime: 1.7
   attackPos: {fileID: 2470503756713292021}
-  attackRadius: 0.2
+  attackRadius: 0.32
   whatIsEnemies:
     serializedVersion: 2
     m_Bits: 256
+  halfExtents: {x: 0.66, y: 0.52, z: 0}
 --- !u!136 &1277356903033841039
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1369,7 +1370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8407a5d0be8d688498b94033eee339da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxDistanceFromEnemy: 2.2
+  maxDistanceFromEnemy: 2.3
   enemy:
     serializedVersion: 2
     m_Bits: 256
@@ -1716,7 +1717,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8007784538748112841}
   m_LocalRotation: {x: 0.12904197, y: -0.6952325, z: 0.12904197, w: 0.6952325}
-  m_LocalPosition: {x: -0.0059, y: -0.0263704, z: 0.1438}
+  m_LocalPosition: {x: -0.0059, y: -0.0263704, z: 0.1599}
   m_LocalScale: {x: 0.09999998, y: 0.1, z: 0.09999998}
   m_Children: []
   m_Father: {fileID: 3519185067678766155}

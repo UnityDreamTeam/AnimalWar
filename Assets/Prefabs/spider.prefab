@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2224398643054653609}
   m_LocalRotation: {x: 0.07691913, y: -0.7029107, z: 0.07691913, w: 0.7029107}
-  m_LocalPosition: {x: -0.22, y: 0.99, z: -0.17}
+  m_LocalPosition: {x: -0.22, y: 0.66, z: -0.17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5280243342682569382}
@@ -407,7 +407,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6116798405498051490}
   m_LocalRotation: {x: 0.07691913, y: -0.7029107, z: 0.07691913, w: 0.7029107}
-  m_LocalPosition: {x: 0, y: 0.4, z: 0.96}
+  m_LocalPosition: {x: 0.075, y: 0.06, z: 1.16}
   m_LocalScale: {x: 0.99999976, y: 1, z: 0.9999999}
   m_Children: []
   m_Father: {fileID: 6197093423497433771}
@@ -633,6 +633,7 @@ MonoBehaviour:
   whatIsEnemies:
     serializedVersion: 2
     m_Bits: 256
+  halfExtents: {x: 0.77, y: 0.52, z: 0}
 --- !u!65 &2864946478821673971
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -645,7 +646,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.5882814, y: 0.655043, z: 1.8143326}
-  m_Center: {x: -0.022087162, y: 0.26967955, z: -0.15352184}
+  m_Center: {x: -0.022087162, y: 0, z: -0.15352184}
 --- !u!54 &1924897654878624184
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -674,7 +675,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8407a5d0be8d688498b94033eee339da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxDistanceFromEnemy: 1.6
+  maxDistanceFromEnemy: 1.8
   enemy:
     serializedVersion: 2
     m_Bits: 256
@@ -1436,7 +1437,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6197093423497793287}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.01100142, y: 0.33919612, z: 0.019342301}
+  m_LocalPosition: {x: -0.01100142, y: 0, z: 0.019342301}
   m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
   m_Children:
   - {fileID: 6197093423497433893}
