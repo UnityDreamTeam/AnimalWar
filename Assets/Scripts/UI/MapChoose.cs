@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class MapChoose : MonoBehaviour
 {
 
-    public enum MAPS { BRIDGE, VOLACNO, DESERT }
+    public enum MAPS { BRIDGE, VOLACNO, DESERT, BRIDGE2 }
 
     [SerializeField] Button[] maps;
     [SerializeField] Text infoText = null;
@@ -16,8 +16,6 @@ public class MapChoose : MonoBehaviour
     MAPS currentMap;
     AnimalsChoose script;
 
-    readonly int lowerBoundary = -1;
-    readonly int higherBoundary = 3;
     readonly int minimumArmySize = 3;
     readonly int mapsOffset = 2;
 
@@ -40,7 +38,7 @@ public class MapChoose : MonoBehaviour
 
     public void changeMap(int change)
     {
-        if (change + (int)currentMap != lowerBoundary && change + (int)currentMap != higherBoundary)
+        if (change + (int)currentMap >= (int)MAPS.BRIDGE && change + (int)currentMap < maps.Length)
         {
             currentMap += change;
             selectMap((int)currentMap);
@@ -56,6 +54,7 @@ public class MapChoose : MonoBehaviour
         }
         else
         {
+            //Notify the user
             infoText.enabled = true;
         }
     }
