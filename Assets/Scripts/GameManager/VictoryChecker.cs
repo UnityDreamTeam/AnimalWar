@@ -9,24 +9,25 @@ public class VictoryChecker : MonoBehaviour
     [SerializeField] TextMeshPro team2Win = null;
     [SerializeField] GameObject timer;
     [SerializeField] GameObject battle_system;
-    GameObject[] teamOne;
-    GameObject[] teamTwo;
+    GameObject teamOne;
+    GameObject teamTwo;
 
-	// Update is called once per frame
-	void Update()
+    void Start()
     {
-        teamOne = GameObject.FindGameObjectsWithTag("PlayerOne");
-        teamTwo = GameObject.FindGameObjectsWithTag("PlayerTwo");
-
-        if (teamOne.Length == 0)
+        teamOne = GameObject.Find("ArmyALocation");
+        teamTwo = GameObject.Find("ArmyBLocation");
+    }
+        // Update is called once per frame
+    void Update()
+    {
+        if (teamOne.transform.childCount == 0)
         {
-            Debug.Log("Team 2 wins");
             team2Win.enabled = true;
             killProcesses();
         }
-        else if (teamTwo.Length == 0)
+        else if (teamTwo.transform.childCount == 0)
         {
-            Debug.Log("Team 1 wins");
+
             team1Win.enabled = true;
             killProcesses();
         } 
