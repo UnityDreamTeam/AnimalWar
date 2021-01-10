@@ -8,6 +8,8 @@ TagManager:
   - PlayerTwo
   - Battle_System
   - Animal_Chooser
+  - Timer
+  - Message
   layers:
   - Default
   - TransparentFX
