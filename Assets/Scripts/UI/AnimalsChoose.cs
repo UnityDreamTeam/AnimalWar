@@ -1,5 +1,4 @@
 ﻿using System;
-using UnityEditor.Events;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -35,12 +34,11 @@ public class AnimalsChoose : MonoBehaviour
         if (CountAnimals < maxNumberOfAnimals)
         {
             GameObject animalSelected = EventSystem.current.currentSelectedGameObject;
-            GameObject selectedAnimal = Instantiate(EventSystem.current.currentSelectedGameObject,
-                Vector3.zero, Quaternion.identity);
+            GameObject selectedAnimal = Instantiate(animalSelected,Vector3.zero, Quaternion.identity);
 
+            selectedAnimal.GetComponent<AddAnimal>().enabled = false;
             selectedAnimal.GetComponent<Button>().onClick.AddListener(deleteAnimalFromArmy);
-            UnityEventTools.RemovePersistentListener(selectedAnimal.GetComponent<Button>().onClick, 0);
-            
+
             foreach (Transform animalPos in PlayerOneArmyPosition.transform)
             {
                 if (animalPos.childCount == 0) // dont have child
