@@ -8624,7 +8624,7 @@ GameObject:
   - component: {fileID: 1195396330}
   - component: {fileID: 1195396329}
   m_Layer: 0
-  m_Name: EnemyChecker
+  m_Name: VictoryChecker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
