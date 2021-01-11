@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6998241356643067731}
   - component: {fileID: 6998241356642264947}
   - component: {fileID: 6998241356641297843}
-  - component: {fileID: 6998241356655229139}
+  - component: {fileID: 4717588837289896587}
   m_Layer: 0
   m_Name: baum ld0
   m_TagString: Untagged
@@ -81,17 +81,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &6998241356655229139
-CapsuleCollider:
+--- !u!135 &4717588837289896587
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6998241356643564403}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 72180bae849cb164bbda23d3210dc713, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.33
-  m_Height: 10.88
-  m_Direction: 1
-  m_Center: {x: -0.03, y: 4.4, z: -0.11}
+  serializedVersion: 2
+  m_Radius: 0.55
+  m_Center: {x: -0.02, y: 3.84, z: 0}

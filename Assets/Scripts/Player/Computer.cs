@@ -30,46 +30,43 @@ public class Computer : MonoBehaviour
         if (script.getCurrentPlayerTurn() == BattleState.PLAYER_TWO_TURN)
         {
             InitializeBeforeTurn();
-
-            float step = speed * Time.deltaTime;//How much to go towards the target
-
-            Debug.Log(Vector3.Distance(transform.position, closest.position));
-            if (Vector3.Distance(transform.position, closest.position) > maxDistanceFromEnemy)
+            if (closest != null)
             {
-                gameObject.GetComponentInChildren<Animator>().SetBool("Run", true);
+                float step = speed * Time.deltaTime;//How much to go towards the target
 
-                //rotate to look at the player
-                transform.LookAt(closest);
-
-                //Vector3 positieVoor = closest.position + closest.forward * 2f;
-                transform.position = Vector3.MoveTowards(transform.position, closest.position, step);
-            }
-            else if (transform.position.y - closest.position.y > 0.00001f)
-            {
-                //Now going up/down to be centered with the enemy
-                Vector3 upDownVector = new Vector3(transform.position.x, closest.position.y, transform.position.z);
-                transform.position = Vector3.MoveTowards(transform.position, upDownVector, step);
-
-                //rotate to look at the player
-                transform.LookAt(closest);
-                
-            }
-            else
-            {
-                gameObject.GetComponentInChildren<Animator>().SetBool("Run", false);
-
-                //If we reached the target
-                if (!delayAttack)
+                Debug.Log(Vector3.Distance(transform.position, closest.position));
+                if (Vector3.Distance(transform.position, closest.position) > maxDistanceFromEnemy)
                 {
-                    //If the attack killed the enemy
-                    gameObject.GetComponent<Animal>().attack();
-                    delayAttack = true;
-                    StartCoroutine(AttackLock());
+                    gameObject.GetComponentInChildren<Animator>().SetBool("Run", true);
 
-                    gameObject.GetComponent<Animator>().SetBool("Attack", true);
+                    //Vector3 positieVoor = closest.position + closest.forward * 2f;
+                    transform.position = Vector3.MoveTowards(transform.position, closest.position, step);
                 }
+                else if (transform.position.y - closest.position.y > 0.00001f)
+                {
+                    //Now going up/down to be centered with the enemy
+                    Vector3 upDownVector = new Vector3(transform.position.x, closest.position.y, transform.position.z);
+                    transform.position = Vector3.MoveTowards(transform.position, upDownVector, step);
+                }
+                else
+                {
+                    gameObject.GetComponentInChildren<Animator>().SetBool("Run", false);
+
+                    //If we reached the target
+                    if (!delayAttack)
+                    {
+                        //If the attack killed the enemy
+                        gameObject.GetComponent<Animal>().attack();
+                        delayAttack = true;
+                        StartCoroutine(AttackLock());
+
+                        gameObject.GetComponent<Animator>().SetBool("Attack", true);
+                    }
+                }
+
+                //rotate to look at the player
+                transform.LookAt(closest);
             }
-            
 
             //bool reached_target = Physics.Raycast(transform.position, transform.forward, maxDistanceFromEnemy, enemy);
         }
