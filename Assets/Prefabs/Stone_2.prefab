@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3909423289883123181}
   - component: {fileID: 3909423289883893197}
   - component: {fileID: 3909423289884892941}
-  - component: {fileID: 2717775919338200994}
+  - component: {fileID: 1647282195713176151}
   m_Layer: 0
   m_Name: Stone_2
   m_TagString: Untagged
@@ -80,37 +80,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!60 &2717775919338200994
-PolygonCollider2D:
+--- !u!135 &1647282195713176151
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3909423289882689997}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 1217c36a1f94ad046baf98c22fcd7acf, type: 2}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.0048876633, y: 0.10615711}
-      - {x: -0.08251596, y: 0.09040114}
-      - {x: -0.09095545, y: 0.054467697}
-      - {x: -0.08191165, y: -0.0035124347}
-      - {x: -0.08347, y: -0.08702658}
-      - {x: 0.0016060073, y: -0.12427663}
-      - {x: 0.04711999, y: -0.11009192}
-      - {x: 0.09963219, y: -0.03888059}
-      - {x: 0.096514076, y: 0.05534441}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.081208676
+  m_Center: {x: 0.008518495, y: -0.011092947, z: -0.000047773123}

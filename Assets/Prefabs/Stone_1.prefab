@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 893395395380792075}
   - component: {fileID: 893395395379465003}
   - component: {fileID: 893395395378498027}
-  - component: {fileID: -6126753798268973507}
+  - component: {fileID: 4318827227508052787}
+  - component: {fileID: 8172417709007831551}
   m_Layer: 0
   m_Name: Stone_1
   m_TagString: Untagged
@@ -80,19 +81,29 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!70 &-6126753798268973507
-CapsuleCollider2D:
+--- !u!135 &4318827227508052787
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 893395395380762411}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 1217c36a1f94ad046baf98c22fcd7acf, type: 2}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.0032969266, y: 0.007973704}
-  m_Size: {x: 0.32869825, y: 0.21106963}
-  m_Direction: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.09974531
+  m_Center: {x: 0.055561252, y: 0.0053421427, z: -0.0053060353}
+--- !u!135 &8172417709007831551
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 893395395380762411}
+  m_Material: {fileID: 13400000, guid: 1217c36a1f94ad046baf98c22fcd7acf, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.085175216
+  m_Center: {x: -0.073614255, y: -0.0009734845, z: -0.0053060353}
