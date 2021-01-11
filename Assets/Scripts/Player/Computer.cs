@@ -10,8 +10,8 @@ public class Computer : MonoBehaviour
     [SerializeField] float delayAttackTime = 1.8f;
 
     BattleSystem script;
-    Transform [] locations;
     Transform closest;
+    GameObject[] animals;
 
     Vector3 deadEnemy;
     bool delayAttack = false;
@@ -20,7 +20,7 @@ public class Computer : MonoBehaviour
     {
         GameObject BattleSystem = GameObject.FindGameObjectWithTag("Battle_System");
         script = BattleSystem.GetComponent<BattleSystem>();
-        locations = new Transform[script.PlayerOneArmy.Animals.Length];
+        animals = new GameObject[script.PlayerOneArmy.Animals.Length];
         deadEnemy = new Vector3(int.MaxValue, int.MaxValue, int.MaxValue);
     }
 
@@ -54,12 +54,6 @@ public class Computer : MonoBehaviour
 
                     transform.position = Vector3.MoveTowards(transform.position, closest.position, step);
                 }
-                else if (transform.position.y - closest.position.y > 0.1f)
-                {
-                    //Now going up/down to be centered with the enemy
-                    Vector3 upDownVector = new Vector3(transform.position.x, closest.position.y, transform.position.z);
-                    transform.position = Vector3.MoveTowards(transform.position, upDownVector, step);
-                }
                 else
                 {
                     gameObject.GetComponentInChildren<Animator>().SetBool("Run", false);
@@ -89,35 +83,54 @@ public class Computer : MonoBehaviour
     {
         for (int i = 0; i < script.PlayerOneArmy.Animals.Length; i++)
         {
-            if (script.PlayerOneArmy.getAnimalObject(i) != null)
-            {
-                locations[i] = script.PlayerOneArmy.getAnimalObject(i).transform;
-            }
+            animals[i] = script.PlayerOneArmy.getAnimalObject(i);
         }
 
-        closest = findClosestAnimal(locations);
+        closest = findClosestAnimal(animals);
     }
 
-    Transform findClosestAnimal(Transform[] locations)
+    Transform findClosestAnimal(GameObject[] animals)
     {
         Vector3 computerAnimalLocation = transform.position;
 
         float distance = int.MaxValue;
-        Transform closest = locations[0];
+        Transform closestLocation = null;
 
-        for (int i = 0; i < locations.Length; i++)
+        for (int i = 0; i < animals.Length; i++)
         {
-            if (locations[i] != null)
+            if (animals[i] != null)
             {
-                float currentDistance = Vector3.Distance(computerAnimalLocation, locations[i].position);
+                float currentDistance = Vector3.Distance(computerAnimalLocation, animals[i].transform.position);
                 if (currentDistance < distance)
                 {
                     distance = currentDistance;
-                    closest = locations[i];
+                    closestLocation = animals[i].transform;
                 }
             }
         }
 
-        return closest;
+        return closestLocation;
+    }
+
+    Transform findLowestHPAnimal(GameObject[] animals)
+    {
+        Transform lowestLocation = null;
+
+        float lowestHP = int.MaxValue;
+
+        for (int i = 0; i < animals.Length; i++)
+        {
+            if (animals[i] != null)
+            {
+                float currentHP = animals[i].GetComponent<Animal>().CurrectHP;
+                if (currentHP < lowestHP)
+                {
+                    lowestHP = currentHP;
+                    lowestLocation = animals[i].transform;
+                }
+            }
+        }
+
+        return lowestLocation;
     }
 }
