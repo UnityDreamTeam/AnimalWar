@@ -12,6 +12,9 @@ GameObject:
   - component: {fileID: 9012596544210148770}
   - component: {fileID: 9012596544211148642}
   - component: {fileID: 9012596544208290306}
+  - component: {fileID: 4111939301427013289}
+  - component: {fileID: 8267733965787582365}
+  - component: {fileID: 3691338352132027018}
   m_Layer: 0
   m_Name: baum ld1
   m_TagString: Untagged
@@ -91,7 +94,47 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.31
-  m_Height: 6.79
+  m_Radius: 0.085980415
+  m_Height: 2.6954935
   m_Direction: 1
-  m_Center: {x: -0.26, y: 3.07, z: -0.23}
+  m_Center: {x: -0.26990545, y: 1.4146961, z: -0.23000002}
+--- !u!135 &4111939301427013289
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9012596544213139874}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.18910944
+  m_Center: {x: -0.2576183, y: 1.4294763, z: 0.37359214}
+--- !u!136 &8267733965787582365
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9012596544213139874}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.13633835
+  m_Height: 1.8888801
+  m_Direction: 1
+  m_Center: {x: -0.23122571, y: 1.4632809, z: 0.37359238}
+--- !u!135 &3691338352132027018
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9012596544213139874}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5700755
+  m_Center: {x: -0.7740009, y: 6.292888, z: 0.37359226}

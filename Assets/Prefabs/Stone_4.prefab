@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 368791036110068727}
   - component: {fileID: 368791036107168727}
   - component: {fileID: 368791036108298519}
-  - component: {fileID: 6409907626055658075}
+  - component: {fileID: 6128520051927302224}
+  - component: {fileID: 5258373098387777812}
   m_Layer: 0
   m_Name: Stone_4
   m_TagString: Untagged
@@ -80,43 +81,29 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!60 &6409907626055658075
-PolygonCollider2D:
+--- !u!135 &6128520051927302224
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 368791036110555095}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 1217c36a1f94ad046baf98c22fcd7acf, type: 2}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.23996171, y: 0.070955455}
-      - {x: 0.19610913, y: 0.12574741}
-      - {x: 0.022191335, y: 0.14643249}
-      - {x: -0.036427394, y: 0.14648615}
-      - {x: -0.08884427, y: 0.11449081}
-      - {x: -0.22478148, y: 0.0032737404}
-      - {x: -0.25260502, y: -0.05820395}
-      - {x: -0.23260665, y: -0.10735855}
-      - {x: -0.20497088, y: -0.13685432}
-      - {x: -0.116356246, y: -0.15425849}
-      - {x: -0.04448027, y: -0.12968671}
-      - {x: 0.007739675, y: -0.13484423}
-      - {x: 0.1158984, y: -0.07808609}
-      - {x: 0.18808138, y: -0.038363438}
-      - {x: 0.24225007, y: 0.03655704}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.10801286
+  m_Center: {x: 0.08665907, y: 0.024850316, z: 0.0036155581}
+--- !u!135 &5258373098387777812
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 368791036110555095}
+  m_Material: {fileID: 13400000, guid: 1217c36a1f94ad046baf98c22fcd7acf, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.10560333
+  m_Center: {x: -0.10722873, y: -0.026165778, z: 0.0036155581}
