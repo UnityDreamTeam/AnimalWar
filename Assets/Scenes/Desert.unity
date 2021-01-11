@@ -2893,7 +2893,7 @@ MonoBehaviour:
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
-    baseLocation: {fileID: 0}
+    baseLocation: {fileID: 336008894}
   playerTwoArmy:
     animals:
     - {fileID: 3519185067678992489, guid: bd4595248a83b2548bf456be8cf2d7d8, type: 3}
@@ -2901,7 +2901,7 @@ MonoBehaviour:
     - {fileID: 2842147684891060691, guid: 14acd5fa0d249fe47b226630555121b4, type: 3}
     - {fileID: 3519185067678992489, guid: bd4595248a83b2548bf456be8cf2d7d8, type: 3}
     - {fileID: 3519185067678992489, guid: bd4595248a83b2548bf456be8cf2d7d8, type: 3}
-    baseLocation: {fileID: 0}
+    baseLocation: {fileID: 2126137814}
   allAnimals:
     animals:
     - {fileID: 2842147684891060691, guid: 14acd5fa0d249fe47b226630555121b4, type: 3}
