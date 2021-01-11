@@ -13,7 +13,7 @@ public abstract class Animal : MonoBehaviour, IBehavior
     [SerializeField] Vector3 halfExtents = default;
     [SerializeField] protected float walkSpeed = 3;
 
-    protected float currectHP;
+    private float currectHP;
     protected Animator animator;
     private float rotationDegreePerSecond = 1000;
     bool delayAttack = false;
@@ -114,4 +114,5 @@ public abstract class Animal : MonoBehaviour, IBehavior
     public float WalkSpeed { get => walkSpeed; set => walkSpeed = value; }
     public float MaxHP { get => maxHP; set => maxHP = value; }
     public float Damage { get => damage; set => damage = value; }
+    public float CurrectHP { get => currectHP; set => currectHP = value; }
 }
