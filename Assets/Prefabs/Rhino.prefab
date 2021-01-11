@@ -1318,9 +1318,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7086595ffc984fc469e01ef4b3ca7210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 260
-  damage: 43
-  walkSpeed: 2.85
+  maxHP: 447
+  damage: 31
+  walkSpeed: 2.7
   delayAttackTime: 1.7
   attackPos: {fileID: 2470503756713292021}
   attackRadius: 0.32
@@ -1375,7 +1375,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   speed: 3
-  rotationSpeed: 5
   delayAttackTime: 1.7
 --- !u!1 &3519185067678992491
 GameObject:

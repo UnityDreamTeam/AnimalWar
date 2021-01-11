@@ -10264,9 +10264,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55e7e38ffc7001c40883ffaa42306911, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 120
-  damage: 55
-  walkSpeed: 3.5
+  maxHP: 310
+  damage: 43
+  walkSpeed: 3
   delayAttackTime: 1.4
   attackPos: {fileID: 3564733840597497649}
   attackRadius: 0.15
