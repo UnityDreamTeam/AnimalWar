@@ -19,7 +19,6 @@ public class VictoryChecker : MonoBehaviour
         teamOne = GameObject.Find("ArmyALocation");
         teamTwo = GameObject.Find("ArmyBLocation");
         animalChoose = GameObject.Find("AnimalChooser");
-
     }
         // Update is called once per frame
     void Update()
@@ -42,8 +41,6 @@ public class VictoryChecker : MonoBehaviour
     {
         SceneManager.LoadScene(menuScene);
     }
-
-
 
     void killProcesses()
     {
