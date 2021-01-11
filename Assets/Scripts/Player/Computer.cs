@@ -7,7 +7,6 @@ public class Computer : MonoBehaviour
     [SerializeField] float maxDistanceFromEnemy = 2.1f;
     [SerializeField] LayerMask enemy = default;
     [SerializeField] float speed = 2;
-    [SerializeField] float rotationSpeed = 5; //speed of turning
 
     BattleSystem script;
     Transform [] locations;
@@ -40,7 +39,7 @@ public class Computer : MonoBehaviour
                 gameObject.GetComponentInChildren<Animator>().SetBool("Run", true);
 
                 //rotate to look at the player
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(closest.position - transform.position), rotationSpeed * Time.deltaTime);
+                transform.LookAt(closest);
 
                 //Vector3 positieVoor = closest.position + closest.forward * 2f;
                 transform.position = Vector3.MoveTowards(transform.position, closest.position, step);
@@ -52,7 +51,8 @@ public class Computer : MonoBehaviour
                 transform.position = Vector3.MoveTowards(transform.position, upDownVector, step);
 
                 //rotate to look at the player
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(closest.position - transform.position), rotationSpeed * Time.deltaTime);
+                transform.LookAt(closest);
+                
             }
             else
             {
