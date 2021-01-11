@@ -624,10 +624,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 177c6834a14a3274eaeec391d87f6b27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 100
+  maxHP: 250
   damage: 22
-  walkSpeed: 4.2
-  delayAttackTime: 1.5
+  walkSpeed: 5.1
+  delayAttackTime: 1.2
   attackPos: {fileID: 7750061340994616893}
   attackRadius: 0.2
   whatIsEnemies:
