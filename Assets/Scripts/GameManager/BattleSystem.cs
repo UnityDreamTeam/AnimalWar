@@ -152,19 +152,25 @@ public class BattleSystem : MonoBehaviour
 
     public void disableCurrentAnimalMovement()
     {
-        currentActiveAnimal.GetComponent<AnimalController>().enabled = false;
-        currentActiveAnimal.GetComponent<Animal>().disableMovement();
-
-        if (currentActiveAnimal.GetComponent<Computer>() != null)
+        if (state == BattleState.PLAYER_ONE_TURN)
+        {
+            currentActiveAnimal.GetComponent<AnimalController>().enabled = false;
+        }
+        else
         {
             currentActiveAnimal.GetComponent<Computer>().enabled = false;
         }
+
+        currentActiveAnimal.GetComponent<Animal>().disableMovement();
     }
 
     public void enableCurrentAnimalMovement()
     {
-        currentActiveAnimal.GetComponent<AnimalController>().enabled = true;
-        if (currentActiveAnimal.GetComponent<Computer>() != null)
+        if (state == BattleState.PLAYER_ONE_TURN)
+        {
+            currentActiveAnimal.GetComponent<AnimalController>().enabled = true;
+        }
+        else
         {
             currentActiveAnimal.GetComponent<Computer>().enabled = true;
         }
