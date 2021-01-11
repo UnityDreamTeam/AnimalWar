@@ -24,6 +24,20 @@ public class Computer : MonoBehaviour
         deadEnemy = new Vector3(int.MaxValue, int.MaxValue, int.MaxValue);
     }
 
+    private void FixedUpdate()
+    {
+        //Update computer's animal roatation
+        if (script.isComputerTurn())
+        {
+            if (closest != null)
+            {
+                Vector3 relativePos = closest.position - transform.position;
+                Quaternion toRotation = Quaternion.LookRotation(relativePos);
+                transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+            }
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -63,16 +77,10 @@ public class Computer : MonoBehaviour
                         gameObject.GetComponent<Animator>().SetBool("Attack", true);
                     }
                 }
-
-                //rotate to look at the player
-                transform.LookAt(closest);
             }
-
-            //bool reached_target = Physics.Raycast(transform.position, transform.forward, maxDistanceFromEnemy, enemy);
         }
     }
 
-    
     IEnumerator AttackLock()
     {
         yield return new WaitForSeconds(delayAttackTime);
