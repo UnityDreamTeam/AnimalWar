@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class AddAnimal : MonoBehaviour
 {
     Button myButton;
-    [SerializeField] GameObject animalChooser;
+    [SerializeField] GameObject animalChooser = null;
 
     // Start is called before the first frame update
     void Start()

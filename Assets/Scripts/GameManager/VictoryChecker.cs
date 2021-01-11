@@ -7,8 +7,8 @@ public class VictoryChecker : MonoBehaviour
 {
     [SerializeField] TextMeshPro team1Win = null;
     [SerializeField] TextMeshPro team2Win = null;
-    [SerializeField] GameObject timer;
-    [SerializeField] GameObject battle_system;
+    [SerializeField] GameObject timer = null;
+    [SerializeField] GameObject battle_system = null;
     GameObject teamOne;
     GameObject teamTwo;
 

@@ -5,15 +5,15 @@ using UnityEngine;
 public class Computer : MonoBehaviour
 {
     [SerializeField] float maxDistanceFromEnemy = 2.1f;
-    [SerializeField] LayerMask enemy = default;
     [SerializeField] float speed = 2;
+    [SerializeField] float rotationSpeed = 2;
+    [SerializeField] float delayAttackTime = 1.8f;
 
     BattleSystem script;
     Transform [] locations;
     Transform closest;
-    Vector3 deadEnemy;
 
-    [SerializeField] float delayAttackTime = 1.8f;
+    Vector3 deadEnemy;
     bool delayAttack = false;
 
     void Start()
@@ -24,25 +24,37 @@ public class Computer : MonoBehaviour
         deadEnemy = new Vector3(int.MaxValue, int.MaxValue, int.MaxValue);
     }
 
+    private void FixedUpdate()
+    {
+        //Update computer's animal roatation
+        if (script.isComputerTurn())
+        {
+            if (closest != null)
+            {
+                Vector3 relativePos = closest.position - transform.position;
+                Quaternion toRotation = Quaternion.LookRotation(relativePos);
+                transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+            }
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if (script.getCurrentPlayerTurn() == BattleState.PLAYER_TWO_TURN)
+        if (script.isComputerTurn())
         {
             InitializeBeforeTurn();
             if (closest != null)
             {
                 float step = speed * Time.deltaTime;//How much to go towards the target
 
-                Debug.Log(Vector3.Distance(transform.position, closest.position));
                 if (Vector3.Distance(transform.position, closest.position) > maxDistanceFromEnemy)
                 {
                     gameObject.GetComponentInChildren<Animator>().SetBool("Run", true);
 
-                    //Vector3 positieVoor = closest.position + closest.forward * 2f;
                     transform.position = Vector3.MoveTowards(transform.position, closest.position, step);
                 }
-                else if (transform.position.y - closest.position.y > 0.00001f)
+                else if (transform.position.y - closest.position.y > 0.1f)
                 {
                     //Now going up/down to be centered with the enemy
                     Vector3 upDownVector = new Vector3(transform.position.x, closest.position.y, transform.position.z);
@@ -63,16 +75,10 @@ public class Computer : MonoBehaviour
                         gameObject.GetComponent<Animator>().SetBool("Attack", true);
                     }
                 }
-
-                //rotate to look at the player
-                transform.LookAt(closest);
             }
-
-            //bool reached_target = Physics.Raycast(transform.position, transform.forward, maxDistanceFromEnemy, enemy);
         }
     }
 
-    
     IEnumerator AttackLock()
     {
         yield return new WaitForSeconds(delayAttackTime);
