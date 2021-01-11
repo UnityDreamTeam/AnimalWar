@@ -191,5 +191,10 @@ public class BattleSystem : MonoBehaviour
         Camera.main.orthographicSize += zoomIn;
     }
 
+    public bool isComputerTurn()
+    {
+        return state == BattleState.PLAYER_TWO_TURN;
+    }
+
     public Army PlayerOneArmy { get => playerOneArmy; set => playerOneArmy = value; }
 }
