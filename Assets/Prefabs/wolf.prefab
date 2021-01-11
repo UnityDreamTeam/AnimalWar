@@ -1337,14 +1337,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 380
   damage: 34
-  walkSpeed: 3.2
-  delayAttackTime: 1.1
+  delayAttackTime: 1.4
   attackPos: {fileID: 2679115376311292859}
-  attackRadius: 0.2
   whatIsEnemies:
     serializedVersion: 2
     m_Bits: 256
   halfExtents: {x: 0.64, y: 0.73, z: 0}
+  walkSpeed: 3.2
 --- !u!135 &1745220336490626597
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1387,10 +1386,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxDistanceFromEnemy: 2
-  enemy:
-    serializedVersion: 2
-    m_Bits: 256
   speed: 3.6
+  rotationSpeed: 2
   delayAttackTime: 1.1
 --- !u!1 &4377963864472050967
 GameObject:
