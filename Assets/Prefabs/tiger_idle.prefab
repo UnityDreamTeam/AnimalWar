@@ -10266,14 +10266,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 310
   damage: 43
-  walkSpeed: 3
   delayAttackTime: 1.4
   attackPos: {fileID: 3564733840597497649}
-  attackRadius: 0.15
   whatIsEnemies:
     serializedVersion: 2
     m_Bits: 256
   halfExtents: {x: 0.65, y: 0.48, z: 0}
+  walkSpeed: 3
 --- !u!135 &6688301948821914288
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -10316,10 +10315,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxDistanceFromEnemy: 1.9
-  enemy:
-    serializedVersion: 2
-    m_Bits: 256
   speed: 3.5
+  rotationSpeed: 2
   delayAttackTime: 1.4
 --- !u!1 &266821337057484747
 GameObject:
@@ -11476,7 +11473,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6801181762658176506}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.25, y: 0, z: 0}
+  m_LocalPosition: {x: 0.5, y: 0, z: 0}
   m_LocalScale: {x: 20, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 8040826663363310881}
@@ -11556,7 +11553,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8630152632183492494}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.25, y: 0, z: 0}
+  m_LocalPosition: {x: -0.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3593211694688450200}
