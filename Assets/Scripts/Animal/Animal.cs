@@ -5,20 +5,20 @@ using UnityEngine;
 
 public abstract class Animal : MonoBehaviour, IBehavior
 {
-    protected float currectHP;
     [SerializeField] private float maxHP;
     [SerializeField] protected float damage = 0.1f;
-    readonly int id = -1;
-    protected float shield;
-    [SerializeField] protected float walkSpeed = 3;
-	protected Animator animator;
-    private float rotationDegreePerSecond = 1000;
-    bool delayAttack = false;
     [SerializeField] float delayAttackTime = 1.8f;
     [SerializeField] Transform attackPos = null;
-    [SerializeField] float attackRadius = 0.1f;
     [SerializeField] LayerMask whatIsEnemies = default;
     [SerializeField] Vector3 halfExtents = default;
+    [SerializeField] protected float walkSpeed = 3;
+
+    protected float currectHP;
+    protected Animator animator;
+    private float rotationDegreePerSecond = 1000;
+    bool delayAttack = false;
+
+    readonly int id = -1;
 
 
     public bool attack()
