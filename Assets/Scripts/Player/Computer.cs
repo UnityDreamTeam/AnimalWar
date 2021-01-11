@@ -54,12 +54,6 @@ public class Computer : MonoBehaviour
 
                     transform.position = Vector3.MoveTowards(transform.position, closest.position, step);
                 }
-                else if (transform.position.y - closest.position.y > 0.1f)
-                {
-                    //Now going up/down to be centered with the enemy
-                    Vector3 upDownVector = new Vector3(transform.position.x, closest.position.y, transform.position.z);
-                    transform.position = Vector3.MoveTowards(transform.position, upDownVector, step);
-                }
                 else
                 {
                     gameObject.GetComponentInChildren<Animator>().SetBool("Run", false);
