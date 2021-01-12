@@ -98,6 +98,7 @@ public class BattleSystem : MonoBehaviour
             {
                 //Set first animal to play (player #1)
                 currentActiveAnimal = playerOneArmy.getAnimalObject(playerOneCurrentAnimalTurn++);
+                turnLightOnAnimal();
                 break;
             }
 
@@ -189,6 +190,18 @@ public class BattleSystem : MonoBehaviour
         Camera.main.transform.rotation = rotationCamera;
         //Zoom out
         Camera.main.orthographicSize += zoomIn;
+    }
+
+    public void turnLightOnAnimal()
+    {
+        //Turn light on active animal
+        currentActiveAnimal.GetComponentInChildren<Light>().enabled = true;
+    }
+
+    public void turnOffLightAnimal()
+    {
+        //Turn light off the animal
+        currentActiveAnimal.GetComponentInChildren<Light>().enabled = false;
     }
 
     public bool isComputerTurn()
