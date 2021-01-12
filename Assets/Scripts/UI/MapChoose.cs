@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class MapChoose : MonoBehaviour
 {
 
-    public enum MAPS { BRIDGE, VOLACNO, DESERT, BRIDGE2 }
+    public enum MAPS { BRIDGE, VOLACNO, DESERT}
 
     [SerializeField] Button[] maps = null;
     [SerializeField] Text infoText = null;
