@@ -12,7 +12,7 @@ public class AnimalsChoose : MonoBehaviour
     int[] animalMap = null;
     int countAnimals = 0;
     readonly int empty = -1;
-    [SerializeField] int difficult = 0;
+    int difficult = 0;
 
     void Awake()
     {
