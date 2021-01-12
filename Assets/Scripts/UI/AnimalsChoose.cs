@@ -12,6 +12,7 @@ public class AnimalsChoose : MonoBehaviour
     int[] animalMap = null;
     int countAnimals = 0;
     readonly int empty = -1;
+    [SerializeField] int difficult = 0;
 
     void Awake()
     {
@@ -65,10 +66,16 @@ public class AnimalsChoose : MonoBehaviour
         Destroy(EventSystem.current.currentSelectedGameObject);
     }
 
+    public void chooseDifficult(int dif)
+    {
+        Difficult = dif;
+    }
+
     public int[] getMap()
     {
         return animalMap;
     }
 
     public int CountAnimals { get => countAnimals; set => countAnimals = value; }
+    public int Difficult { get => difficult; set => difficult = value; }
 }
