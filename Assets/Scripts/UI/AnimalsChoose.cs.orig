@@ -12,9 +12,13 @@ public class AnimalsChoose : MonoBehaviour
     int[] animalMap = null;
     int countAnimals = 0;
     readonly int empty = -1;
+<<<<<<< HEAD
     int difficult = 0;
+=======
+    [SerializeField] int difficult = 0;
     [SerializeField] AudioSource select;
     [SerializeField] AudioSource delete;
+>>>>>>> 77492d1... Add select and delete animal audio
 
     void Awake()
     {
