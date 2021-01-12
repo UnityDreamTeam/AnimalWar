@@ -65,6 +65,7 @@ public class TurnTimer : MonoBehaviour
 
         //Update relevant components
         script.disableCurrentAnimalMovement();
+        script.turnOffLightAnimal();
 
         information.text = "Turn is over";
         information.enabled = true;
@@ -74,6 +75,10 @@ public class TurnTimer : MonoBehaviour
         information.enabled = false;
 
         script.updatePlayerTurn();
+
+        //Turn on it's light
+        script.turnLightOnAnimal();
+
         reloadTimer = true;
     }
 }
