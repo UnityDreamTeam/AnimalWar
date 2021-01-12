@@ -453,9 +453,9 @@ MonoBehaviour:
     animals:
     - {fileID: 3519185067678992489, guid: bd4595248a83b2548bf456be8cf2d7d8, type: 3}
     - {fileID: 266821337057484745, guid: 2e00a8b4b158f4840b9f23315cb611b4, type: 3}
+    - {fileID: 6197093423497793163, guid: c7b69d0daa199f247bb2a1923e3e4abd, type: 3}
     - {fileID: 2842147684891060691, guid: 14acd5fa0d249fe47b226630555121b4, type: 3}
-    - {fileID: 3519185067678992489, guid: bd4595248a83b2548bf456be8cf2d7d8, type: 3}
-    - {fileID: 3519185067678992489, guid: bd4595248a83b2548bf456be8cf2d7d8, type: 3}
+    - {fileID: 4377963864379090292, guid: a525a315dd09a0942b7362e64cddb6a8, type: 3}
     baseLocation: {fileID: 1942388783}
   allAnimals:
     animals:
