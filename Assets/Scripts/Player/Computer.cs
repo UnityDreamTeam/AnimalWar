@@ -105,49 +105,4 @@ public class Computer : MonoBehaviour
 
         closest = targetFinder.findTarget(transform, animals);
     }
-
-    Transform findClosestAnimal(GameObject[] animals)
-    {
-        Vector3 computerAnimalLocation = transform.position;
-
-        float distance = int.MaxValue;
-        Transform closestLocation = null;
-
-        for (int i = 0; i < animals.Length; i++)
-        {
-            if (animals[i] != null)
-            {
-                float currentDistance = Vector3.Distance(computerAnimalLocation, animals[i].transform.position);
-                if (currentDistance < distance)
-                {
-                    distance = currentDistance;
-                    closestLocation = animals[i].transform;
-                }
-            }
-        }
-
-        return closestLocation;
-    }
-
-    Transform findLowestHPAnimal(GameObject[] animals)
-    {
-        Transform lowestLocation = null;
-
-        float lowestHP = int.MaxValue;
-
-        for (int i = 0; i < animals.Length; i++)
-        {
-            if (animals[i] != null)
-            {
-                float currentHP = animals[i].GetComponent<Animal>().CurrectHP;
-                if (currentHP < lowestHP)
-                {
-                    lowestHP = currentHP;
-                    lowestLocation = animals[i].transform;
-                }
-            }
-        }
-
-        return lowestLocation;
-    }
 }

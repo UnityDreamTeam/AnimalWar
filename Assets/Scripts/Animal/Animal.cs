@@ -21,6 +21,10 @@ public abstract class Animal : MonoBehaviour, IBehavior
     readonly int id = -1;
 
 
+    public float getCurrentHP()
+    {
+        return gameObject.GetComponentInChildren<HealthBar>().Hp;
+    }
     public bool attack()
     {
         bool isDead = false;
@@ -74,6 +78,11 @@ public abstract class Animal : MonoBehaviour, IBehavior
         Gizmos.DrawCube(attackPos.position, halfExtents);
     }
 
+    void Start()
+    {
+        currectHP = MaxHP;
+    }
+
     private void Update()
     {
         if (gameObject.GetComponent<AnimalController>().enabled)
@@ -114,5 +123,4 @@ public abstract class Animal : MonoBehaviour, IBehavior
     public float WalkSpeed { get => walkSpeed; set => walkSpeed = value; }
     public float MaxHP { get => maxHP; set => maxHP = value; }
     public float Damage { get => damage; set => damage = value; }
-    public float CurrectHP { get => currectHP; set => currectHP = value; }
 }

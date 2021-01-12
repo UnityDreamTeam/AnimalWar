@@ -10,10 +10,12 @@ public class HealthBar : MonoBehaviour
     float maxHP;
     float hp; //Current animal's HP
 
+    public float Hp { get => hp; set => hp = value; }
+
     // Start is called before the first frame update
     public void Start()
     {
-        hp = maxHP = GetComponentInParent<Animal>().MaxHP;
+        Hp = maxHP = GetComponentInParent<Animal>().MaxHP;
         setInfo();
         bar = transform.Find("Bar");
         bar.localScale = new Vector3(scaleFactor, scaleFactor);
@@ -23,10 +25,10 @@ public class HealthBar : MonoBehaviour
     {
         bool isTargetDead = false;
 
-        hp -= damage;
-        bar.localScale = new Vector3(hp / maxHP, scaleFactor);
+        Hp -= damage;
+        bar.localScale = new Vector3(Hp / maxHP, scaleFactor);
         setInfo();
-        if (hp <= 0)
+        if (Hp <= 0)
         {
             Destroy(gameObject.transform.parent.gameObject);
             isTargetDead = true;
@@ -37,6 +39,7 @@ public class HealthBar : MonoBehaviour
 
     void setInfo()
     {
-        transform.Find("Info").GetComponent<TextMeshPro>().text = "HP: " + hp + " atk: " + GetComponentInParent<Animal>().Damage;
+        transform.Find("Info").GetComponent<TextMeshPro>().text = "HP: " + Hp + " atk: " + GetComponentInParent<Animal>().Damage;
     }
+
 }

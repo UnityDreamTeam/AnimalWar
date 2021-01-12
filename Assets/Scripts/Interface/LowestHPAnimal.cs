@@ -14,7 +14,7 @@ public class LowestHPAnimal : IAIBehavior
         {
             if (animals[i] != null)
             {
-                float currentHP = animals[i].GetComponent<Animal>().CurrectHP;
+                float currentHP = animals[i].GetComponent<Animal>().getCurrentHP();
                 if (currentHP < lowestHP)
                 {
                     lowestHP = currentHP;
