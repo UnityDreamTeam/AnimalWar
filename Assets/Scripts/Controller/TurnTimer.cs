@@ -78,6 +78,7 @@ public class TurnTimer : MonoBehaviour
 
         //Turn on it's light
         script.turnLightOnAnimal();
+        script.turnOnAudioAnimal();
 
         reloadTimer = true;
     }

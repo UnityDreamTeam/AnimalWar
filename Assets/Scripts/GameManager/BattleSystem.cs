@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public enum BattleState {START, PLAYER_ONE_TURN, PLAYER_TWO_TURN}
 
@@ -99,6 +100,7 @@ public class BattleSystem : MonoBehaviour
                 //Set first animal to play (player #1)
                 currentActiveAnimal = playerOneArmy.getAnimalObject(playerOneCurrentAnimalTurn++);
                 turnLightOnAnimal();
+                turnOnAudioAnimal();
                 break;
             }
 
@@ -202,6 +204,12 @@ public class BattleSystem : MonoBehaviour
     {
         //Turn light off the animal
         currentActiveAnimal.GetComponentInChildren<Light>().enabled = false;
+    }
+
+    public void turnOnAudioAnimal()
+    {
+        //Turn audio on active animal
+        currentActiveAnimal.GetComponentInChildren<AudioSource>().Play();
     }
 
     public bool isComputerTurn()

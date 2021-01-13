@@ -13,6 +13,8 @@ public class AnimalsChoose : MonoBehaviour
     int countAnimals = 0;
     readonly int empty = -1;
     int difficult = 0;
+    [SerializeField] AudioSource select = null;
+    [SerializeField] AudioSource delete = null;
 
     void Awake()
     {
@@ -40,6 +42,8 @@ public class AnimalsChoose : MonoBehaviour
             selectedAnimal.GetComponent<AddAnimal>().enabled = false;
             selectedAnimal.GetComponent<Button>().onClick.AddListener(deleteAnimalFromArmy);
 
+            select.Play();
+
             foreach (Transform animalPos in PlayerOneArmyPosition.transform)
             {
                 if (animalPos.childCount == 0) // dont have child
@@ -59,6 +63,7 @@ public class AnimalsChoose : MonoBehaviour
 
     public void deleteAnimalFromArmy()
     {
+        delete.Play();
         int indexToDelete = Int32.Parse(EventSystem.current.currentSelectedGameObject.transform.parent.name);
         playerOneArmy[indexToDelete] = null;
         animalMap[indexToDelete] = empty;
