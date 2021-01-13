@@ -13,8 +13,8 @@ public class AnimalsChoose : MonoBehaviour
     int countAnimals = 0;
     readonly int empty = -1;
     int difficult = 0;
-    [SerializeField] AudioSource select;
-    [SerializeField] AudioSource delete;
+    [SerializeField] AudioSource select = null;
+    [SerializeField] AudioSource delete = null;
 
     void Awake()
     {
