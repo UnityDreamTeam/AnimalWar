@@ -13,6 +13,13 @@ public class TurnTimer : MonoBehaviour
     BattleSystem script;
 
     bool reloadTimer;
+    readonly float timeBeforeFocus = 1f;
+    readonly float timeBeforeExitFocus = 1f;
+    readonly float timeAfterFocus = 1f;
+    readonly float timeAfterGo = 0.5f;
+    readonly float timeBetweenTicks = 1f;
+    readonly float timeAfterTurnOver = 1f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,17 +46,17 @@ public class TurnTimer : MonoBehaviour
         information.text = "Player's #" + player_turn.ToString("D") + " Turn";
         information.enabled = true;
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(timeBeforeFocus);
         information.enabled = false;
 
         script.focusOnActiveAnimal();
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(timeBeforeExitFocus);
         script.returnFocusToNormal();
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(timeAfterFocus);
 
         //Enable movement only after pronauncing on player's turn
         go.enabled = true;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(timeAfterGo);
         script.enableCurrentAnimalMovement();
         go.enabled = false;
 
@@ -57,7 +64,7 @@ public class TurnTimer : MonoBehaviour
         while (countDownTimer > 0)
         {
             countDownDisplay.text = "Time left : " + countDownTimer.ToString();
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(timeBetweenTicks);
             countDownTimer--;//Update timer
         }
         //Update to 0
@@ -70,7 +77,7 @@ public class TurnTimer : MonoBehaviour
         information.text = "Turn is over";
         information.enabled = true;
        
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(timeAfterTurnOver);
 
         information.enabled = false;
 
